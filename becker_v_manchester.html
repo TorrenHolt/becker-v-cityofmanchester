@@ -1,0 +1,2542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Becker v. City of Manchester — A Civil Rights Case</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0d0d0d;
+    --paper: #f5f0e8;
+    --cream: #faf7f2;
+    --red: #c0392b;
+    --red-dark: #922b21;
+    --gold: #b8860b;
+    --slate: #2c3e50;
+    --slate-light: #34495e;
+    --rule: #c8bfb0;
+    --muted: #7f8c8d;
+    --highlight: #fff3cd;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--ink);
+    border-bottom: 2px solid var(--red);
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--paper);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+  }
+  .nav-links {
+    display: flex; gap: 0; list-style: none;
+    height: 100%;
+  }
+  .nav-links > li {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .nav-links > li > a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rule);
+    text-decoration: none;
+    padding: 0 1.25rem;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .nav-links > li > a:hover,
+  .nav-links > li:hover > a { color: var(--paper); background: rgba(255,255,255,0.05); }
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-top: 2px solid var(--red);
+    min-width: 210px;
+    z-index: 200;
+    padding: 0.5rem 0;
+  }
+  .nav-links > li:hover .nav-dropdown { display: block; }
+  .nav-dropdown a {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #999;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    transition: color 0.15s, background 0.15s;
+    white-space: nowrap;
+  }
+  .nav-dropdown a:hover { color: var(--paper); background: rgba(255,255,255,0.05); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--ink);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    padding-top: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(255,255,255,0.03) 39px,
+        rgba(255,255,255,0.03) 40px
+      );
+  }
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 4rem;
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 40px; height: 1px;
+    background: var(--red);
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 900;
+    color: var(--paper);
+    line-height: 1.0;
+    margin-bottom: 1rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--red);
+  }
+  .hero-subtitle {
+    font-size: 1.2rem;
+    color: #a0998e;
+    max-width: 640px;
+    margin: 2rem 0 3rem;
+    font-style: italic;
+    line-height: 1.6;
+  }
+  .hero-meta {
+    display: flex; gap: 3rem; flex-wrap: wrap;
+  }
+  .meta-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .meta-item .label { color: var(--muted); display: block; margin-bottom: 0.3rem; }
+  .meta-item .value { color: var(--paper); font-weight: 500; }
+  .hero-bottom {
+    border-top: 1px solid #2a2a2a;
+    padding: 1.5rem 4rem;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .status-badge {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: rgba(192, 57, 43, 0.15);
+    border: 1px solid var(--red);
+    color: var(--red);
+    padding: 0.4rem 1rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .status-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--red);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+  .scroll-hint {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #555;
+    margin-left: auto;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 4rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .section-full {
+    max-width: 100%;
+    padding-left: 0; padding-right: 0;
+  }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 4rem;
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 1rem;
+  }
+  .section-number {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--red);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+  }
+
+  /* OVERVIEW */
+  #overview {
+    background: var(--cream);
+  }
+  #overview > .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 6rem 4rem;
+  }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .overview-lead {
+    font-size: 1.35rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--slate);
+  }
+  .overview-lead strong {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .pull-quote {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2.5rem;
+    position: relative;
+  }
+  .pull-quote::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    color: var(--red);
+    position: absolute;
+    top: -1rem; left: 1.5rem;
+    line-height: 1;
+  }
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    padding-top: 2rem;
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    font-style: normal;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--rule);
+    margin-top: 1.5rem;
+    border-top: 1px solid #333;
+    padding-top: 1rem;
+  }
+
+  /* PARTIES */
+  .parties-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  .party-card {
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    background: var(--cream);
+    position: relative;
+  }
+  .party-card::before {
+    content: attr(data-role);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+  .party-card.plaintiff::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--slate);
+  }
+  .party-card.defendant::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--red);
+  }
+  .party-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .party-desc {
+    font-size: 0.9rem;
+    color: var(--slate-light);
+    line-height: 1.6;
+  }
+
+  /* TIMELINE */
+  #timeline {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6rem 0;
+  }
+  #timeline .inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 4rem;
+  }
+  #timeline .section-title { color: var(--paper); }
+  #timeline .section-header { border-bottom-color: #333; }
+  .timeline-wrapper {
+    position: relative;
+    padding-left: 3rem;
+  }
+  .timeline-wrapper::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--red), transparent);
+  }
+  .timeline-entry {
+    position: relative;
+    margin-bottom: 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid #1a1a1a;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .timeline-entry.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .timeline-entry::before {
+    content: '';
+    position: absolute;
+    left: -3.35rem; top: 0.5rem;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--red);
+    box-shadow: 0 0 0 3px rgba(192,57,43,0.2);
+  }
+  .timeline-entry.critical::before {
+    background: var(--red);
+    width: 14px; height: 14px;
+    left: -3.55rem; top: 0.3rem;
+    box-shadow: 0 0 0 4px rgba(192,57,43,0.3);
+  }
+  .entry-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    color: var(--red);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .entry-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--paper);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .entry-body {
+    font-size: 0.95rem;
+    color: #a0998e;
+    line-height: 1.7;
+    max-width: 700px;
+  }
+  .entry-body strong { color: var(--paper); font-weight: 600; }
+  .entry-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.25rem 0.6rem;
+    margin-top: 0.75rem;
+    border: 1px solid;
+  }
+  .tag-critical, .tag-refusal, .tag-coercion, .tag-proxy, .tag-legal, .tag-admin, .tag-landmark {
+    color: var(--muted); border-color: #333; background: transparent;
+  }
+
+  /* STATE PROCEEDINGS */
+  #state-proceedings { background: var(--cream); }
+  #state-proceedings > .inner { max-width: 1100px; margin: 0 auto; padding: 6rem 4rem; }
+  .proceedings-intro {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    max-width: 760px;
+    margin-bottom: 3rem;
+    color: var(--slate);
+  }
+  .proceedings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+  .proceedings-col-header {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: var(--slate);
+    color: var(--paper);
+  }
+  .appeal-card {
+    border: 1px solid var(--rule);
+    padding: 1.75rem;
+    background: white;
+    margin-bottom: 1.25rem;
+    position: relative;
+    border-left: 3px solid var(--red);
+  }
+  .appeal-card-docket {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+  .appeal-card h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .appeal-card p {
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    line-height: 1.65;
+  }
+  .appeal-status {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.6rem;
+    margin-top: 0.75rem;
+    border: 1px solid var(--red);
+    color: var(--red);
+    background: rgba(192,57,43,0.08);
+  }
+  .mandamus-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2.5rem;
+    margin-top: 3rem;
+  }
+  .mandamus-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--paper);
+  }
+  .mandamus-box p {
+    font-size: 0.95rem;
+    color: #a0998e;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+  .mandamus-meta {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #2a2a2a;
+  }
+  .mandamus-meta-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .mandamus-meta-item .label { color: var(--muted); display: block; margin-bottom: 0.3rem; }
+  .mandamus-meta-item .value { color: var(--paper); }
+  .landmark-callout {
+    background: rgba(192,57,43,0.1);
+    border: 1px solid var(--red);
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+  .landmark-callout-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.75rem;
+  }
+  .landmark-callout p {
+    font-size: 0.9rem;
+    color: var(--slate);
+    line-height: 1.65;
+  }
+  .systemic-box {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  .systemic-box h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .systemic-box p {
+    font-size: 0.875rem;
+    color: var(--slate-light);
+    line-height: 1.65;
+    margin-bottom: 0.75rem;
+  }
+  .stat-highlight {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--red);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  /* EVIDENCE */
+  #evidence { background: var(--paper); }
+  .evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .exhibit-card {
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    background: var(--cream);
+    cursor: pointer;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .exhibit-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+    transform: scaleX(0);
+    transition: transform 0.25s ease;
+    transform-origin: left;
+  }
+  .exhibit-card:hover {
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    transform: translateY(-2px);
+  }
+  .exhibit-card:hover::before { transform: scaleX(1); }
+  .exhibit-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.75rem;
+  }
+  .exhibit-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+  .exhibit-summary {
+    font-size: 0.85rem;
+    color: var(--slate-light);
+    line-height: 1.6;
+  }
+  .exhibit-impact {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .exhibit-impact span {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  /* LEGAL ARGUMENTS */
+  #arguments { background: var(--cream); }
+  #arguments > .inner {
+    max-width: 1100px; margin: 0 auto; padding: 6rem 4rem;
+  }
+  .arguments-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .argument-column-header {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  .plaintiff-col .argument-column-header {
+    background: var(--slate);
+    color: var(--paper);
+  }
+  .defendant-col .argument-column-header {
+    background: var(--muted);
+    color: var(--paper);
+  }
+  .argument-block {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-left: 3px solid var(--rule);
+  }
+  .plaintiff-col .argument-block { border-left-color: var(--slate); }
+  .defendant-col .argument-block { border-left-color: var(--muted); }
+  .argument-block h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+  }
+  .argument-block p {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--slate-light);
+  }
+  .argument-block .rebuttal {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+    background: #fff8e7;
+    border: 1px solid #f0d060;
+    font-size: 0.8rem;
+    color: #5a4a00;
+    font-style: italic;
+  }
+  .rebuttal::before {
+    content: '⚠ Strategic note: ';
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  /* CONSTITUTIONAL ISSUES */
+  #constitution {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 6rem 0;
+  }
+  #constitution .inner {
+    max-width: 1100px; margin: 0 auto; padding: 0 4rem;
+  }
+  #constitution .section-title { color: var(--paper); }
+  #constitution .section-header { border-bottom-color: #333; }
+  .amendment-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+  .amendment-card {
+    border: 1px solid #2a2a2a;
+    padding: 2rem;
+    transition: border-color 0.2s;
+  }
+  .amendment-card:hover { border-color: var(--red); }
+  .amendment-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+  }
+  .amendment-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+  .amendment-desc {
+    font-size: 0.9rem;
+    color: #a0998e;
+    line-height: 1.65;
+  }
+  .amendment-desc strong { color: var(--paper); }
+  .precedents-section { margin-top: 3rem; }
+  .precedents-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: var(--paper);
+    margin-bottom: 2rem;
+  }
+  .precedent-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .precedent-item {
+    background: #111;
+    padding: 1.25rem 1.5rem;
+    border-left: 2px solid #333;
+    transition: border-left-color 0.2s;
+  }
+  .precedent-item:hover { border-left-color: var(--red); }
+  .case-cite {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--red);
+    margin-bottom: 0.4rem;
+  }
+  .case-holding {
+    font-size: 0.85rem;
+    color: #a0998e;
+    line-height: 1.5;
+  }
+
+  /* THE PATTERN */
+  #pattern { background: #faf7f2; }
+  .pattern-intro {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    max-width: 760px;
+    margin-bottom: 3rem;
+    color: var(--slate);
+  }
+  .pattern-steps {
+    counter-reset: step;
+  }
+  .pattern-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid var(--rule);
+    counter-increment: step;
+  }
+  .step-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--rule);
+    line-height: 1;
+    min-width: 3rem;
+    text-align: center;
+  }
+  .step-content h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .step-content p {
+    font-size: 0.9rem;
+    color: var(--slate-light);
+    line-height: 1.65;
+  }
+  .step-content .evidence-ref {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-top: 0.75rem;
+    display: block;
+  }
+
+  /* KEY ADMISSIONS */
+  #admissions { background: var(--ink); color: var(--paper); padding: 6rem 0; }
+  #admissions .inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+  #admissions .section-title { color: var(--paper); }
+  #admissions .section-header { border-bottom-color: #333; }
+  .admissions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .admission-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: start;
+    background: #111;
+    padding: 2rem;
+    border: 1px solid #1f1f1f;
+    transition: border-color 0.2s;
+  }
+  .admission-card:hover { border-color: var(--red); }
+  .admission-source {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+  }
+  .admission-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--paper);
+    border-left: 3px solid var(--red);
+    padding-left: 1.5rem;
+  }
+  .admission-analysis {
+    max-width: 240px;
+    font-size: 0.8rem;
+    color: #a0998e;
+    line-height: 1.6;
+    border-left: 1px solid #2a2a2a;
+    padding-left: 1.5rem;
+  }
+  .admission-analysis strong {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+
+  /* STATUS */
+  #status { background: var(--paper); }
+  .status-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+  }
+  .status-main {}
+  .status-docket {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    height: fit-content;
+  }
+  .docket-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .docket-entry {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.8rem;
+  }
+  .docket-entry:last-child { border-bottom: none; }
+  .docket-entry .doc-name { color: var(--ink); }
+  .docket-entry .doc-date {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .status-assessment {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--slate);
+    margin-bottom: 2rem;
+  }
+  .outcome-prediction {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 2rem;
+    margin-top: 2rem;
+  }
+  .outcome-prediction h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--paper);
+  }
+  .outcome-prediction p {
+    font-size: 0.9rem;
+    color: #a0998e;
+    line-height: 1.65;
+  }
+  .outcome-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .outcome-bar-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 180px;
+  }
+  .outcome-bar-track {
+    flex: 1;
+    height: 4px;
+    background: #222;
+    position: relative;
+  }
+  .outcome-bar-fill {
+    height: 100%;
+    background: var(--red);
+    transition: width 1s ease;
+  }
+  .outcome-bar-pct {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--red);
+    min-width: 3rem;
+    text-align: right;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #0a0a0a;
+    color: #555;
+    padding: 3rem 4rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+    max-width: 100%;
+  }
+  footer .footer-section h5 {
+    color: #888;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  footer p, footer li { line-height: 2; }
+  footer ul { list-style: none; }
+  footer a { color: #555; text-decoration: none; }
+  footer a:hover { color: var(--red); }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    section { padding: 4rem 1.5rem; }
+    .hero-content { padding: 4rem 1.5rem 2rem; }
+    .hero-bottom { padding: 1.5rem; }
+    .overview-grid, .parties-grid, .arguments-layout,
+    .evidence-grid, .amendment-cards, .status-grid { grid-template-columns: 1fr; }
+    .precedent-grid { grid-template-columns: 1fr; }
+    .admission-card { grid-template-columns: 1fr; }
+    .admission-source { writing-mode: horizontal-tb; transform: none; }
+    footer { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 3rem; }
+  }
+
+  /* LEAD PARAGRAPH */
+  .lead {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--slate);
+    max-width: 800px;
+    margin-bottom: 3rem;
+  }
+
+  /* SECTION BACKGROUNDS */
+  #stakes { background: var(--paper); }
+  #procedural-maze { background: var(--cream); }
+  #complete-docket { background: var(--paper); }
+  #systemic-evidence { background: var(--paper); }
+
+  /* RECENT DEVELOPMENTS BANNER */
+  .recent-banner {
+    background: var(--red-dark);
+    color: var(--paper);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 0.5rem 2rem;
+    position: fixed;
+    top: 56px;
+    left: 0; right: 0;
+    z-index: 98;
+  }
+  .recent-banner strong { font-weight: 600; color: #ffd; }
+  body { padding-top: 32px; }
+
+  /* ARCHITECTURE SECTION */
+  #architecture { background: var(--ink); color: var(--paper); padding: 6rem 0; }
+  #architecture .inner { max-width: 1100px; margin: 0 auto; padding: 0 4rem; }
+  #architecture .section-title { color: var(--paper); }
+  #architecture .section-header { border-bottom-color: #333; }
+  .arch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .arch-diagram { font-family: 'DM Mono', monospace; font-size: 0.8rem; line-height: 1.9; color: #a0998e; }
+  .arch-diagram .floor {
+    border: 1px solid #2a2a2a;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 0.5rem;
+    transition: border-color 0.2s;
+  }
+  .arch-diagram .floor:hover { border-color: var(--red); }
+  .arch-diagram .floor.highlighted { border-color: var(--red); background: rgba(192,57,43,0.08); }
+  .arch-diagram .floor-label { font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; display: block; }
+  .arch-diagram .floor-address { color: var(--paper); font-size: 0.9rem; font-weight: 500; }
+  .arch-diagram .floor-note { font-size: 0.65rem; color: #555; margin-top: 0.25rem; }
+  .arch-diagram .floor-note.active { color: var(--red); }
+  .arch-explanation { font-size: 0.95rem; color: #a0998e; line-height: 1.75; }
+  .arch-explanation strong { color: var(--paper); }
+  .arch-point { margin-bottom: 1.75rem; padding-left: 1.25rem; border-left: 2px solid #2a2a2a; transition: border-left-color 0.2s; }
+  .arch-point:hover { border-left-color: var(--red); }
+  .arch-point h4 { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--paper); margin-bottom: 0.4rem; }
+  .arch-point p { font-size: 0.875rem; color: #a0998e; line-height: 1.65; }
+  .arch-verdict { background: rgba(192,57,43,0.1); border: 1px solid var(--red); padding: 1.5rem; margin-top: 2.5rem; font-size: 0.9rem; color: var(--paper); line-height: 1.65; }
+  .arch-verdict-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem; }
+
+  /* NOT MOOT SIDEBAR */
+  .not-moot-box { background: var(--cream); border: 1px solid var(--rule); border-left: 4px solid var(--slate); padding: 1.5rem; margin-top: 1.5rem; }
+  .not-moot-box h4 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--ink); margin-bottom: 0.75rem; }
+  .not-moot-box p { font-size: 0.85rem; color: var(--slate-light); line-height: 1.65; margin-bottom: 0.6rem; }
+  .not-moot-box ul { list-style: none; font-size: 0.85rem; color: var(--slate-light); line-height: 1.8; }
+
+  /* LEGAL HURDLES */
+  .hurdles-box { background: #fff8e7; border: 1px solid #f0d060; padding: 2rem; margin-top: 2rem; }
+  .hurdles-box h4 { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--ink); margin-bottom: 0.4rem; }
+  .hurdles-box .hurdles-sub { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: #7a6000; margin-bottom: 1.25rem; display: block; }
+  .hurdle-item { margin-bottom: 1rem; padding-left: 1rem; border-left: 2px solid #f0d060; }
+  .hurdle-item h5 { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: #5a4a00; margin-bottom: 0.3rem; }
+  .hurdle-item p { font-size: 0.85rem; color: #5a4a00; line-height: 1.6; }
+
+  /* UTILITY */
+  .divider { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
+  .red { color: var(--red); }
+  .mono { font-family: 'DM Mono', monospace; font-size: 0.8rem; letter-spacing: 0.05em; }
+
+  /* Scroll animations */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     NAV
+     Replace: nav-brand text, dropdown labels, and href anchor IDs to match
+     your section IDs below.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<nav>
+  <div class="nav-brand">Becker v. City of Manchester — Case Record</div>
+  <ul class="nav-links">
+    <li>
+      <a href="#overview">The Violation ▾</a>
+      <div class="nav-dropdown">
+        <a href="#overview">Case Overview</a>
+        <a href="#parties">Parties</a>
+        <a href="#timeline">Timeline of Events</a>
+        <!-- Add/remove dropdown items as needed -->
+      </div>
+    </li>
+    <li>
+      <a href="#evidence">The Record ▾</a>
+      <div class="nav-dropdown">
+        <a href="#evidence">Key Exhibits</a>
+        <a href="#admissions">Admissions</a>
+        <a href="#pattern">Pattern Evidence</a>
+      </div>
+    </li>
+    <li>
+      <a href="#arguments">Legal Battle ▾</a>
+      <div class="nav-dropdown">
+        <a href="#arguments">Arguments</a>
+        <a href="#constitution">Constitutional Claims</a>
+        <a href="#state-proceedings">State Proceedings</a>
+        <a href="#status">Current Status</a>
+      </div>
+    </li>
+    <li>
+      <a href="#stakes">Why It Matters ▾</a>
+      <div class="nav-dropdown">
+        <a href="#stakes">Stakes &amp; Significance</a>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     RECENT DEVELOPMENTS BANNER  (fixed bar just below nav)
+     Replace: the announcement text with your most recent case event.
+     Delete this entire <div> if not needed.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div class="recent-banner">
+  <strong>Recent Development:</strong> Nov. 6, 2025 — District Judge McCafferty approves Magistrate R&amp;R · Count IV (Fourth Amendment) proceeds to service against Officers McCarthy, Battye &amp; City of Manchester
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     HERO
+     Replace: eyebrow label, plaintiff/defendant names in h1, subtitle,
+     and the four meta-item values (docket, court, filed date, claim type).
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Civil Rights — 42 U.S.C. § 1983 — Fourth Amendment</div>
+    <h1>Becker<br><em>v.</em><br>City of Manchester</h1>
+    <p class="hero-subtitle">A Manchester father documented warrantless home searches, signed admissions that city welfare workers refused to hear child safety concerns, and an alderman who responded to a formal constitutional complaint with "piss off." This is the record.</p>
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="label">Docket</span>
+        <span class="value">1:25-cv-00263-LM-TSM</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Court</span>
+        <span class="value">D. New Hampshire</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Filed</span>
+        <span class="value">July 14, 2025</span>
+      </div>
+      <div class="meta-item">
+        <span class="label">Claim</span>
+        <span class="value">42 U.S.C. § 1983</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-bottom">
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      Active — Count IV Proceeding to Service
+    </div>
+    <span class="scroll-hint">↓ Scroll to read the full record</span>
+  </div>
+</section>
+
+<!-- GLOBAL COLLAPSE/EXPAND TOGGLE — no content to change here -->
+<div style="max-width:1100px; margin:2rem auto 1rem; padding:0 4rem; text-align:right;">
+  <button id="toggleAllBtn" style="background:var(--ink); color:var(--paper); border:1px solid var(--red); padding:0.5rem 1rem; font-family:'DM Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; cursor:pointer;">
+    ⬇️ Expand All
+  </button>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 01 — CASE OVERVIEW
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div id="overview">
+  <div class="inner">
+    <div class="section-header fade-in">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Case Overview</h2>
+    </div>
+
+    <!-- Big-picture framing box -->
+    <div class="fade-in" style="margin-bottom: 2rem; padding: 1.5rem; background: var(--cream); border-left: 4px solid var(--red);">
+      <p style="font-size: 1.2rem; line-height: 1.7; color: var(--slate); font-style: italic; margin: 0;">
+        Torrence Holt Becker, a Manchester resident and custodial parent, filed a seven-count federal civil rights complaint documenting two connected crises: a coordinated October 2024 scheme in which city welfare, code enforcement, and DCYF allegedly worked in concert to circumvent his Fourth Amendment rights — leaving his children camping in 37°F rain — and a warrantless April 2025 police welfare check that ended with a systematic visual sweep of his home and a falsified incident report. After preliminary screening, six counts were dismissed and one survived: Count IV, a Fourth Amendment warrantless search claim against Officers McCarthy, Battye, and the City of Manchester. The dismissed counts — and the documented conduct behind them — remain part of the public record.
+      </p>
+    </div>
+
+    <!-- Claims summary grid (original vs. surviving) -->
+    <div class="fade-in" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+      <div style="background: var(--paper); padding: 1.5rem; border: 1px solid var(--rule);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--muted); margin-bottom: 1rem;">ORIGINAL COMPLAINT (7 COUNTS)</div>
+        <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.9rem; line-height: 2; color: var(--slate);">
+          <li style="color:var(--muted); text-decoration: line-through;">Count I — Substantive Due Process (14th Amend.) — <em>Dismissed</em></li>
+          <li style="color:var(--muted); text-decoration: line-through;">Count II — Procedural Due Process — <em>Dismissed</em></li>
+          <li style="color:var(--muted); text-decoration: line-through;">Count III — First Amendment Petition Rights — <em>Dismissed w/o prejudice (Levasseur)</em></li>
+          <li style="color: var(--ink); font-weight: 600;">Count IV — Fourth Amendment Warrantless Search — <em style="color:var(--red);">SURVIVING</em></li>
+          <li style="color:var(--muted); text-decoration: line-through;">Count V — § 1983 Civil Rights Conspiracy — <em>Dismissed</em></li>
+          <li style="color:var(--muted); text-decoration: line-through;">Count VI — Professional Misconduct / Willful Indifference — <em>Dismissed</em></li>
+          <li style="color:var(--muted); text-decoration: line-through;">Count VII — Document Falsification & Official Oppression — <em>Dismissed</em></li>
+        </ul>
+      </div>
+      <div style="background: var(--cream); padding: 1.5rem; border-left: 4px solid var(--red);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--red); margin-bottom: 1rem;">SURVIVING AFTER PRELIMINARY SCREENING</div>
+        <div style="font-size: 1.3rem; font-weight: 700; color: var(--red); margin-bottom: 0.5rem;">Count IV</div>
+        <div style="font-size: 1rem; font-weight: 600; margin-bottom: 0.75rem;">Fourth Amendment — Warrantless Search</div>
+        <p style="font-size: 0.9rem; line-height: 1.7; color: var(--slate);">Magistrate Judge Saint-Marc found that Becker states a viable Fourth Amendment claim against <strong>Officer Battye</strong> (warrantless entry into the apartment living room) and <strong>Officer McCarthy</strong> (entry into the building stairwell, whose private status requires factual development). The claim against the <strong>City of Manchester</strong> also survives under <em>Monell</em> municipal liability. All other defendants on Count IV — Dionne, Moran, Michaud, and Mark — were dismissed. District Judge McCafferty approved this recommendation in full on November 6, 2025.</p>
+      </div>
+    </div>
+
+    <!-- Overview narrative grid -->
+    <div class="overview-grid fade-in">
+      <div>
+        <p class="overview-lead">
+          On October 7, 2024, Torrence Becker exercised his constitutional right to deny DCYF entry to his home. Within hours, a DCYF worker called Manchester Code Enforcement and asked them to treat the Fourth Amendment assertion as a formal "complaint" — so an inspector could gain entry instead. At the same time, the Manchester Welfare Department <strong>refused to provide emergency housing assistance</strong>, telling Becker that child safety concerns were DCYF's problem. DCYF then went unreachable for 72+ hours. The result: Becker's children, including one with an active respiratory infection, were forced to camp in a Weare campground in 37°F weather with no adequate gear.
+        </p>
+        <p class="overview-lead" style="margin-top: 1.5rem; font-size: 1rem;">
+          Six months later, on April 3, 2025, Manchester police Officers McCarthy and Battye conducted a welfare check at Becker's apartment. According to Becker's allegations, Battye entered the living room without a warrant and conducted a systematic visual sweep of multiple rooms — including a child's bedroom — while McCarthy's official incident report recorded the encounter as ending at 3:00 PM when it actually ran until 3:45 PM. A federal civil rights complaint followed. After preliminary review, the Fourth Amendment warrantless search claim against Battye, McCarthy, and the City survived and has been ordered to service. The conduct behind the dismissed counts — documented by signed admissions, coordination logs, and official correspondence — remains part of the public record.
+        </p>
+      </div>
+      <!-- Pull quote -->
+      <div class="pull-quote">
+        <p>I refuse to listen to concerns of the safety of children. Safety issues must be directed to DCYF.</p>
+        <cite>Manchester City Welfare Specialist Heather Moran — signed on official Notice of Decision paperwork, October 10, 2024 (Exhibit 3)</cite>
+      </div>
+    </div>
+
+    <!-- Parties grid -->
+    <div class="parties-grid fade-in" style="margin-top: 4rem; grid-template-columns: 1fr 1fr;" id="parties">
+
+      <div class="party-card plaintiff" data-role="Plaintiff">
+        <div class="party-name">Torrence Holt Becker</div>
+        <p class="party-desc">Manchester resident and custodial parent of minor children. Proceeding pro se and in forma pauperis. Becker filed a seven-count federal civil rights complaint in July 2025 documenting coordinated constitutional violations by city welfare, code enforcement, and police departments affecting the safety and custody of his children.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Municipal Corporation">
+        <div class="party-name">City of Manchester, NH</div>
+        <p class="party-desc">The municipal corporation that operated all relevant departments and employed all individual defendants. Faces surviving <em>Monell</em> municipal liability under Count IV for alleged policies authorizing warrantless searches and conditioning benefits on constitutional waivers.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Police Department">
+        <div class="party-name">Officer Brittany Battye</div>
+        <p class="party-desc">Manchester Police Officer. Conducted the April 3, 2025 welfare check. Becker alleges Battye positioned herself fully inside his apartment living room for "at least a couple of minutes" and conducted a systematic visual search of multiple rooms — including a child's bedroom, kitchen, and second living area — without warrant, consent, or exigent circumstances. Count IV survives against her.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Police Department">
+        <div class="party-name">Officer Christopher McCarthy</div>
+        <p class="party-desc">Manchester Police Officer. Co-conducted the April 3, 2025 welfare check. Becker alleges McCarthy entered the apartment building's private stairwell without authorization and subsequently falsified his official incident report — recording the encounter as ending at 3:00 PM when it actually ended at approximately 3:45 PM, creating timeline impossibilities to conceal the constitutional violation. Count IV survives against him.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Welfare Dept. (Dismissed)">
+        <div class="party-name">Heather Moran</div>
+        <p class="party-desc">Welfare Specialist II. On October 10, 2024, she signed an official Notice of Decision document stating she "refuses to listen to concerns of the safety of children" and that "Safety issues must be directed to DCYF" — despite Becker's knowledge that DCYF had been unreachable for nearly 72 hours. All counts against Moran were dismissed at preliminary review.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Welfare Dept. (Dismissed)">
+        <div class="party-name">Charlene Michaud</div>
+        <p class="party-desc">Director of Manchester City Welfare, with final policymaking authority for welfare operations. Responded in writing that her office "solely provides financial assistance" and must "go through the same reporting process as any other caller" — despite active knowledge of the emergency and communication with DCYF throughout the week they were unreachable to Becker. All counts dismissed.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Code Enforcement (Dismissed)">
+        <div class="party-name">Kevin Dionne</div>
+        <p class="party-desc">Code Enforcement Supervisor, Manchester Planning &amp; Community Development. The DCYF contact log (Exhibit 2) documents Dionne agreeing on October 8, 2024 to treat a DCYF worker's call as a formal "complaint" and assign an inspector to access Becker's apartment — explicitly in response to Becker's Fourth Amendment refusal of DCYF entry the day before. The Magistrate dismissed Count IV against Dionne because no actual inspection was alleged to have occurred.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Police Dept. (Dismissed)">
+        <div class="party-name">Sergeant Dan Whelan</div>
+        <p class="party-desc">Manchester Police Sergeant. Authored the official supervisory memorandum following Becker's internal complaint about the April 2025 welfare check. Becker alleges Whelan deliberately characterized the private residential stairwell — which contained family mail, children's artwork, and personal belongings — as a "common hallway" in order to justify McCarthy's entry. Dismissed at preliminary review.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Police Dept. (Dismissed)">
+        <div class="party-name">Captain Robert Gravelle</div>
+        <p class="party-desc">Captain, Manchester Police Department. Despite receiving detailed constitutional appeals from Becker documenting specific violations, Gravelle repeatedly dismissed them with form responses and took no corrective action. The Magistrate found no constitutional right to have appeals reviewed by a specific supervisor. Dismissed.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Police Dept. (Dismissed)">
+        <div class="party-name">Chief Peter Marr</div>
+        <p class="party-desc">Chief, Manchester Police Department, with final policymaking authority. Becker escalated constitutional complaints to Marr after Gravelle's non-responses, but received no reply. Becker alleges this silence constitutes ratification of the violations under <em>Monell</em>. Dismissed at preliminary review.</p>
+      </div>
+
+      <div class="party-card defendant" data-role="Defendant — Manchester Alderman (Dismissed w/o Prejudice)">
+        <div class="party-name">Joseph Kelly Levasseur</div>
+        <p class="party-desc">Licensed attorney serving as Manchester Alderman. Becker alleges Levasseur blocked constituents from engaging with his publicly accessible political Facebook profile and responded "piss off" to a formal cease-and-desist letter submitted through the City of Manchester's official website. The Magistrate dismissed Levasseur as improperly joined — his claims arose from unrelated August 2024 events — but the dismissal was without prejudice, preserving refiling rights.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 02 — TIMELINE
+     Add a .timeline-entry for each event. Use class="timeline-entry critical"
+     for the most important entries (renders a larger red dot).
+     Tags: tag-critical | tag-legal | tag-admin | tag-landmark | tag-coercion
+           tag-refusal | tag-proxy
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div id="timeline">
+  <div class="inner">
+    <div class="section-header">
+      <span class="section-number" style="color: var(--red);">02</span>
+      <h2 class="section-title">Timeline of Events</h2>
+    </div>
+    <div class="timeline-wrapper">
+
+      <div class="timeline-entry">
+        <div class="entry-date">August 2024</div>
+        <div class="entry-title">Alderman Levasseur Blocks Constituent; Responds "Piss Off"</div>
+        <p class="entry-body">Becker attempts to engage with Alderman Joseph Kelly Levasseur through his publicly accessible political Facebook profile and is blocked. Becker then submits a formal cease-and-desist letter through the City of Manchester's official website. Levasseur — a licensed attorney and elected official — responds through the same official channel: <strong>"piss off."</strong> Becker alleges no city official took corrective action despite formal complaints. (Exhibit 9)</p>
+        <div>
+          <span class="entry-tag tag-critical">First Amendment Petition</span>
+          <span class="entry-tag tag-admin" style="margin-left: 0.5rem;">ECF 1 ¶¶30–33</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="entry-date">October 2, 2024</div>
+        <div class="entry-title">DCYF Opens Housing Assessment</div>
+        <p class="entry-body">The New Hampshire Division of Children, Youth, and Families (DCYF) initiates a family assessment regarding housing conditions. The referral originated from Manchester City Welfare, which had reported Becker's financial hardship affecting utilities. Becker was simultaneously behind on rent and carried "a significant amount of utility debt." (R&amp;R Background, ECF 7 at 2)</p>
+        <div>
+          <span class="entry-tag tag-admin">DCYF Referral</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry critical">
+        <div class="entry-date">October 7, 2024</div>
+        <div class="entry-title">The Trifecta: Constitutional Assertion, Welfare Refusal &amp; the "Smoking Gun" Coordination</div>
+        <p class="entry-body">Three things happen on the same day. First, DCYF presents Becker with a safety plan containing alleged false statements about his home conditions (no heat, hot water, or air conditioning — conditions Becker disputes) and threatens child removal unless he signs. Becker refuses to sign false statements and refuses DCYF entry to his home. Second, DCYF worker "Kim" (presumed CPSW Kimberly McKenney) immediately contacts <strong>Code Enforcement Supervisor Kevin Dionne</strong>. The DCYF contact log entry for October 8, 09:45 AM documents the coordination: <strong>"I spoke with Kevin Dionne (code enforcement). He will consider the call/message from Kim as a complaint and will be assigning an inspector to access the apartment. In the event that the tenant doesn't allow them in, he will let me know."</strong> Third, Becker calls Welfare Specialist Moran for emergency housing assistance. She refuses, stating unsafe arrangements were "implemented by DCYF" and the Welfare Department would not intervene. (Exhibits 1, 2, 3, 4, 8)</p>
+        <div>
+          <span class="entry-tag tag-critical">Core Constitutional Event</span>
+          <span class="entry-tag tag-proxy" style="margin-left: 0.5rem;">4th Amend. Circumvention</span>
+          <span class="entry-tag tag-refusal" style="margin-left: 0.5rem;">Welfare Refusal #1</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="entry-date">October 9, 2024</div>
+        <div class="entry-title">Safety Concerns Validated: Altercation at Mandated Placement</div>
+        <p class="entry-body">Becker's warnings about the safety of the DCYF-mandated placement are confirmed when a "heated argument about [personal] issues erupted at 6 a.m." at the grandparents' home — exactly as he had predicted. Becker's children are in immediate danger. Becker's objection argues this validation is legally significant: it converts what might have been initial reasonable deference into deliberate indifference when Moran subsequently doubles down. (Exhibit 3; Plaintiff's Objection, ECF 10 at 2)</p>
+        <div>
+          <span class="entry-tag tag-critical">Safety Validation</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry critical">
+        <div class="entry-date">October 10, 2024</div>
+        <div class="entry-title">Moran Signs the Document — "I Refuse to Listen to Concerns of the Safety of Children"</div>
+        <p class="entry-body">Becker returns to the Welfare Department with documented evidence that his safety concerns were valid and attempts to warn about an impending camping arrangement. Moran refuses to listen. Becker immediately writes on his Notice of Decision paperwork: <strong>"I refuse to listen to concerns of the safety of children."</strong> Moran signs it. She adds: <strong>"Safety issues must be directed to DCYF"</strong> — despite knowing DCYF had been deliberately unreachable for nearly 72 hours. Becker immediately escalates: Supervisor Mark confirms by phone the department "prefers not to address child safety concerns." Director Michaud responds by email that the office "solely provides financial assistance" and must follow "the same reporting process as any other caller." (Exhibit 3, 5)</p>
+        <div>
+          <span class="entry-tag tag-critical">Signed Admission</span>
+          <span class="entry-tag tag-refusal" style="margin-left: 0.5rem;">Policy Ratification</span>
+          <span class="entry-tag tag-admin" style="margin-left: 0.5rem;">Exhibit 3</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry critical">
+        <div class="entry-date">October 11–12, 2024</div>
+        <div class="entry-title">Forced Camping: Sick Children, 37°F Weather, No Adequate Gear</div>
+        <p class="entry-body">With DCYF unreachable, City Welfare refusing to intervene, and no emergency housing available except under conditions requiring constitutional waivers, Becker's children — including one suffering from an <strong>active upper respiratory infection</strong> — are forced to camp at a Weare campground with temperatures dropping to 37°F, rain, and without adequate camping gear. On October 12, the situation deteriorates to the point where Becker is compelled to call DCYF's emergency after-hours line to request help for his sick child. (Exhibit 6)</p>
+        <div>
+          <span class="entry-tag tag-critical">Direct Physical Harm</span>
+          <span class="entry-tag tag-coercion" style="margin-left: 0.5rem;">Forced Camping Crisis</span>
+          <span class="entry-tag tag-admin" style="margin-left: 0.5rem;">Exhibit 6</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry critical">
+        <div class="entry-date">April 3, 2025</div>
+        <div class="entry-title">Warrantless Welfare Check: Battye Enters Apartment, McCarthy Enters Stairwell</div>
+        <p class="entry-body">Officers McCarthy and Battye conduct a welfare check at Becker's apartment. Becker alleges that <strong>Officer Battye positioned herself fully inside the apartment living room</strong> for "at least a couple of minutes" and conducted a systematic visual search of multiple private rooms — including his child's bedroom, kitchen, and a second living area — without warrant, consent, or exigent circumstances after the welfare check's purpose had been fulfilled. Becker's child, who had recently been hospitalized following a traumatic prior police encounter, immediately texted afterward about removing an emotional support lizard — demonstrating the trauma caused. Officer McCarthy is separately alleged to have entered the private residential stairwell (which displayed children's artwork and mail). (Exhibits 10, 11, 12)</p>
+        <div>
+          <span class="entry-tag tag-critical">Surviving Count IV</span>
+          <span class="entry-tag tag-legal" style="margin-left: 0.5rem;">4th Amendment — Warrantless Search</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="entry-date">April–August 2025</div>
+        <div class="entry-title">Complaint Chain Closed at Every Level</div>
+        <p class="entry-body">Becker files formal complaints with the Manchester Police Department. Sergeant Whelan authors a supervisory memorandum characterizing the private residential stairwell as a "common hallway" — a characterization Becker alleges is deliberate falsification. The matter is reviewed by the MPD and the New Hampshire Civilian Review Committee and closed. Becker escalates to Captain Gravelle, who dismisses his detailed constitutional appeals with form responses. Chief Marr does not respond at all. (Exhibits 12, 13, 15, 17)</p>
+        <div>
+          <span class="entry-tag tag-admin">Internal Review — Closed</span>
+          <span class="entry-tag tag-legal" style="margin-left: 0.5rem;">Exhibits 12–17</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="entry-date">July 14, 2025</div>
+        <div class="entry-title">Federal Civil Rights Complaint Filed</div>
+        <p class="entry-body">Becker files a 14-page verified complaint in the U.S. District Court for the District of New Hampshire, asserting seven counts under 42 U.S.C. § 1983 against eleven named defendants plus John/Jane Does. The complaint is supported by seventeen exhibits drawn from official government documents, signed admissions, and DCYF contact logs. Becker is granted leave to proceed in forma pauperis. (ECF 1)</p>
+        <div>
+          <span class="entry-tag tag-legal">Complaint Filed — ECF 1</span>
+          <span class="entry-tag tag-landmark" style="margin-left: 0.5rem;">Docket 1:25-cv-00263-LM-TSM</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="entry-date">September 15, 2025</div>
+        <div class="entry-title">Magistrate Issues Report &amp; Recommendation: Count IV Survives</div>
+        <p class="entry-body">Magistrate Judge Talesha L. Saint-Marc issues a 16-page Report and Recommendation following preliminary review under 28 U.S.C. § 1915(e)(2)(B). The R&amp;R recommends dismissal of Counts I, II, III, V, VI, and VII in their entirety, and dismissal of Count IV against all defendants except Officers McCarthy and Battye and the City of Manchester. The R&amp;R orders Count IV served on those three defendants in a separate order issued the same day. (ECF 7)</p>
+        <div>
+          <span class="entry-tag tag-legal">Magistrate R&amp;R — ECF 7</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry">
+        <div class="entry-date">September 24, 2025</div>
+        <div class="entry-title">Plaintiff Files Objection to R&amp;R</div>
+        <p class="entry-body">Becker files a 15-page objection arguing the R&amp;R rests on a "fundamental mischaracterization" — treating documented municipal policies as isolated incidents. The objection argues the conscience-shocking standard is met through systematic municipal policy, not any single act; that DCYF's false safety plan constitutes an independent constitutional violation the R&amp;R ignored; and that the escalating pattern of refusal — with supervisory ratification at each level — establishes <em>Monell</em> liability beyond Count IV. (ECF 10)</p>
+        <div>
+          <span class="entry-tag tag-legal">Plaintiff's Objection — ECF 10</span>
+        </div>
+      </div>
+
+      <div class="timeline-entry critical">
+        <div class="entry-date">November 6, 2025</div>
+        <div class="entry-title">District Judge McCafferty Approves R&amp;R in Full</div>
+        <p class="entry-body">District Judge Landya B. McCafferty issues a one-page order approving the Magistrate's Report and Recommendation after "due consideration of the objection filed." Counts I, II, III, V, VI, and VII are dismissed. Count IV proceeds to service against Officers McCarthy and Battye and the City of Manchester. Levasseur's dismissal on Counts III and VI is confirmed without prejudice. <strong>The case is now in active litigation on the Fourth Amendment warrantless search claim.</strong> (ECF 11)</p>
+        <div>
+          <span class="entry-tag tag-landmark">District Court Order — ECF 11</span>
+          <span class="entry-tag tag-legal" style="margin-left: 0.5rem;">Count IV Active</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 03 — ADDITIONAL CONTEXT / CUSTOM DARK SECTION
+     Use this dark (var(--ink)) section for any important narrative that needs
+     visual separation — e.g., a key event deep-dive, a coercion analysis,
+     or an interagency coordination breakdown.
+     Delete this section if not needed.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<section id="context-section" style="background: var(--ink); color: var(--paper); padding: 6rem 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 4rem;">
+
+    <div class="section-header" style="border-bottom-color: #333;">
+      <span class="section-number" style="color: var(--red);">03</span>
+      <h2 class="section-title" style="color: var(--paper);">The Architecture of Unaccountability</h2>
+    </div>
+
+    <div class="fade-in" style="max-width: 760px; margin-bottom: 4rem;">
+      <p style="font-size: 1.2rem; line-height: 1.75; color: #a0998e; font-style: italic; margin-bottom: 1.5rem;">
+        Becker's complaint describes not one constitutional violation, but a self-reinforcing system — two interlocking schemes, each designed so that every door a citizen might open for help closes immediately behind them.
+      </p>
+      <p style="font-size: 1rem; line-height: 1.8; color: var(--paper);">
+        In October 2024, when Becker exercised his Fourth Amendment right to deny DCYF entry, <strong>two things happened simultaneously:</strong> DCYF called Code Enforcement to manufacture an administrative workaround, and City Welfare refused emergency housing by deferring back to DCYF — the very agency that had just gone dark. With DCYF unreachable and Welfare refusing to act, there was nowhere left to turn. When Becker tried to escalate — to a supervisor, a director, an alderman — each path closed. Six months later, when police entered his home without a warrant and he filed complaints, the same architecture repeated itself: an internal investigation that exonerated officers while simultaneously documenting the violation as "standard protocol," a civilian review board that deferred to the flawed investigation, and a captain who responded to detailed constitutional appeals with a single sentence: <em>"This matter has been looked into by MPD and the CRC and is closed barring any new information."</em>
+      </p>
+    </div>
+
+    <!-- Three-column cards -->
+    <div class="fade-in" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 3rem;">
+      <div style="padding: 1.5rem; background: #111; border-top: 3px solid var(--red);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 0.75rem;">Scheme One — Oct. 2024</div>
+        <p style="font-size: 0.875rem; color: #a0998e; line-height: 1.65;"><strong style="color: var(--paper);">The DCYF-Welfare-Code Enforcement Triangle.</strong> Citizen asserts Fourth Amendment rights against DCYF → DCYF immediately contacts Code Enforcement to use administrative inspection as a proxy → City Welfare simultaneously refuses emergency housing, deferring to DCYF → DCYF goes unreachable → No path to assistance exists that doesn't require surrendering constitutional rights. Outcome: children camping in 37°F rain.</p>
+      </div>
+      <div style="padding: 1.5rem; background: #111; border-top: 3px solid var(--gold);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem;">Scheme Two — April 2025</div>
+        <p style="font-size: 0.875rem; color: #a0998e; line-height: 1.65;"><strong style="color: var(--paper);">The Welfare Check as Warrantless Search.</strong> Officers arrive for welfare check → Officer Battye enters apartment living room without warrant → conducts visual sweep of child's bedroom, kitchen, second living area → McCarthy submits incident report with falsified timestamps → MPD Internal Affairs opens one-day investigation → Officers exonerated → Investigation memo simultaneously admits the conduct was "standard protocol."</p>
+      </div>
+      <div style="padding: 1.5rem; background: #111; border-top: 3px solid var(--muted);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;">The Complaint Architecture</div>
+        <p style="font-size: 0.875rem; color: #a0998e; line-height: 1.65;"><strong style="color: var(--paper);">Five Closed Doors.</strong> Complaint filed with MPD → IA investigation closes in one day, officers exonerated → CRC review defers to flawed IA findings, finds "insufficient cause" → Captain Gravelle responds to three detailed constitutional appeals: "closed barring any new information" → Chief Marr receives formal escalation: no response. Federal lawsuit filed four days later.</p>
+      </div>
+    </div>
+
+    <!-- Closing rhetorical box -->
+    <div class="fade-in" style="padding: 3rem; background: rgba(192,57,43,0.08); border: 1px solid rgba(192,57,43,0.3);">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--red); margin-bottom: 1.5rem; text-align: center;">If Every Door Closes, Is That Policy?</h3>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; max-width: 900px; margin: 0 auto;">
+        <div>
+          <p style="font-size: 0.95rem; color: #a0998e; line-height: 1.8;">The exhibits document a supervisor signing a statement refusing to hear child safety concerns, a DCYF contact log showing same-day coordination to circumvent Fourth Amendment rights, an investigation memo admitting warrantless home searches are "standard protocol," and a captain who responded to three substantive constitutional appeals with two sentences — identical both times. Every formal channel Becker used produced either silence or a form response.</p>
+        </div>
+        <div>
+          <p style="font-size: 0.95rem; color: var(--paper); line-height: 1.8; font-style: italic;">Under <em>Monell v. Dep't of Social Services</em>, a municipality is liable under § 1983 when a constitutional violation results from official policy, a widespread custom, or deliberate indifference by final policymakers to known constitutional violations. The question in this case is whether what is documented here represents isolated error — or a system that functioned exactly as designed.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 04 — KEY EXHIBITS / EVIDENCE
+     Add one .exhibit-card per key piece of evidence.
+     The grid is 3 columns; add/remove cards freely.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<section id="evidence">
+  <div class="section-header fade-in">
+    <span class="section-number">04</span>
+    <h2 class="section-title">Key Evidence</h2>
+  </div>
+  <div class="evidence-grid">
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 1 — DCYF Safety Plan</div>
+      <div class="exhibit-title">DCYF Safety Plan with Alleged False Statements — October 7, 2024</div>
+      <p class="exhibit-summary">The DCYF safety plan presented to Becker on October 7, 2024, which he alleges contained knowingly false statements about the conditions in his home — including assertions about the absence of heat, hot water, and air conditioning that Becker disputes. Becker refused to sign. DCYF worker Kimberly McKenney then forwarded the plan to her supervisor Catrina Horne and the children's mother — simultaneously going on scheduled leave and leaving Becker with no reachable caseworker. The plan triggered the sequence of events that led to children camping in freezing rain.</p>
+      <div class="exhibit-impact">Legal Impact: <span>Establishes the initial coercive trigger — a state safety plan Becker alleges contains false information, the refusal to sign which set the entire coordinated response in motion.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 2 — DCYF Coordination Log</div>
+      <div class="exhibit-title">DCYF Contact Log Entry — October 8, 2024, 9:45 AM</div>
+      <p class="exhibit-summary">The government contact log documenting DCYF's coordination with Manchester Code Enforcement the morning after Becker's Fourth Amendment assertion. The entry reads: "I spoke with Kevin Dionne (code enforcement). He will consider the call/message from Kim as a complaint and will be assigning an inspector to access the apartment. In the event that the tenant doesn't allow them in, he will let me know." This is an official government record of the alleged conspiracy — not an allegation, but a contemporaneous log entry authored by a state employee documenting the agreement in real time.</p>
+      <div class="exhibit-impact">Legal Impact: <span>The cornerstone of Becker's conspiracy and municipal policy claims. Documents the moment a constitutional refusal was converted into an administrative pretext — in the government's own words, on the same day it happened.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 3 — Signed Welfare Refusal</div>
+      <div class="exhibit-title">Moran's Signed Notice of Decision — October 10, 2024</div>
+      <p class="exhibit-summary">The physical document Becker wrote on and Moran signed during their October 10 meeting. Moran's signature appears beneath Becker's contemporaneous notation that she "refuses to listen to concerns of the safety of children" and that "Safety issues must be directed to DCYF." The document is official Manchester City Welfare paperwork — a Notice of Decision — and Moran's signature was witnessed and obtained in real time. It is the single most direct admission in the entire record: a government official's contemporaneous acknowledgment of her own refusal, in her own handwriting, on an official form.</p>
+      <div class="exhibit-impact">Legal Impact: <span>Incontrovertible proof of the refusal — signed by the defendant herself. Renders any claim that Moran "reasonably deferred" factually difficult to sustain after October 9's confirmed danger. The Magistrate characterized this as deferral; Becker argues it is ratification of institutional indifference.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 4 — Housing Code Coordination</div>
+      <div class="exhibit-title">Code Enforcement Email Chain — October 8–10, 2024</div>
+      <p class="exhibit-summary">The email chain showing Code Enforcement Supervisor Kevin Dionne's outreach to Becker directly — Dionne writes on October 8: "I have been asked to perform an inspection of your apartment for violations of the Manchester Housing Code." The chain then shows an inspection was conducted on October 9 (the same day Becker's safety concerns were validated by the 6 a.m. altercation), that the landlord was present, and that Dionne subsequently corresponded with Welfare Specialist Heather Moran. A follow-up entry in Exhibit 8 confirms DCYF later requested to accompany inspectors on a November 7 visit, and that the landlord refused DCYF entry at the door — requiring a warrant.</p>
+      <div class="exhibit-impact">Legal Impact: <span>Corroborates the DCYF contact log: an inspection was assigned and executed within 24 hours of Becker's Fourth Amendment refusal of DCYF entry. Connects Dionne's conduct to Moran's — establishing the inter-agency coordination alleged in Count V (dismissed) and providing context for the surviving Monell claim.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 5 — Welfare Complaint Documentation</div>
+      <div class="exhibit-title">Becker's Formal Welfare Complaint &amp; Director Michaud's Written Response — October 10, 2024</div>
+      <p class="exhibit-summary">Becker files a formal email complaint to Welfare Supervisor Mark and Director Michaud within hours of the Moran meeting. Michaud responds the same afternoon — the fastest response Becker receives from any official throughout the entire case — writing that the office "solely provides financial assistance," must "go through the same reporting process as any other caller," and suggests Becker contact the Office of the Child Advocate or the Ombudsman. Becker replies that he had already contacted both offices two days earlier with no response. The email thread documents Becker's October 15 follow-up noting that DCYF "forced me to remove the children" from conditions both agencies had approved, and asking Michaud how "such a disastrous and dangerous situation could slip through."</p>
+      <div class="exhibit-impact">Legal Impact: <span>Establishes final-policymaker ratification: the Director's written response — same day, formal, on official letterhead — confirms the departmental policy and forecloses any argument that Moran acted alone or outside department norms.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 6 — Forced Camping Crisis</div>
+      <div class="exhibit-title">Forced Camping Documentation — October 11–12, 2024</div>
+      <p class="exhibit-summary">Becker's December 4, 2024 letter to his Alderman (Patrick Long, a different alderman from Levasseur) documenting the camping crisis in detail. The letter confirms: City Welfare and DCYF jointly approved a camping trip as an "emergency housing solution" in below-40°F temperatures and rain, without appropriate gear. It reveals an additional dimension not prominent in the complaint: one of the children is transgender, and the initial DCYF-mandated placement with grandparents was with family members "known to hold transphobic attitudes" — the same placement where the 6 a.m. altercation occurred on October 9. Becker calls DCYF's emergency line twice — October 7 and October 12 — and is ultimately required to remove his child from dangerous conditions at 11 PM.</p>
+      <div class="exhibit-impact">Legal Impact: <span>Documents the concrete physical harm resulting from the institutional refusals — children exposed to danger from two directions simultaneously (transphobic placement and outdoor exposure while ill). Transforms abstract constitutional injury into documented physical consequence.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 7 — DCYF Evidence Coordination</div>
+      <div class="exhibit-title">DCYF Supervisor Letter Requesting Inspection Photos — October 10, 2024</div>
+      <p class="exhibit-summary">A letter on official DCYF letterhead from Supervisor Catrina Horne to the Code Enforcement inspector ("Officer Cogswell"), dated October 10 — the same day as the Moran refusal — requesting that the inspector send DCYF any photographs taken during the apartment inspection. The letter reads: "It's my understanding that you went to the home of Torrence Becker at 162 Willow Street, Apt 3 Manchester NH and completed a violation order based on what you observed in his apartment. If you took pictures of the state of his apartment at that time would/could you please send those pictures as part of this request?" DCYF is actively collecting the code enforcement inspection's evidence — on official letterhead — three days after Becker's Fourth Amendment refusal of DCYF entry.</p>
+      <div class="exhibit-impact">Legal Impact: <span>Shows DCYF using code enforcement as an evidence-gathering proxy even after the initial coordination was documented. The formal letter request — on DCYF letterhead, from a supervisor, to a code enforcement officer — is difficult to characterize as anything other than inter-agency coordination designed to obtain what direct DCYF inspection could not.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 8 — Code Enforcement Chronology</div>
+      <div class="exhibit-title">Code Enforcement Case Activity Log — October–November 2024</div>
+      <p class="exhibit-summary">The official Manchester code enforcement activity log for 162 Willow Street. Entries document: the October 9 inspection (smokes missing, holes in walls, debris, bad food); the inspector's contact with the landlord; and a November 7 entry in which DCYF asked to accompany inspectors on a follow-up visit. When they arrived, "the landlord stated absolutely not she was not allowed to go in the property without a warrant." The inspector notes he called DCYF to inform them, then completed his own inspection confirming all violations had been cleared — heat was restored, toilets operational. The government's own log shows DCYF still attempting to use code enforcement access six weeks after the initial refusal, and the landlord independently requiring a warrant for DCYF entry.</p>
+      <div class="exhibit-impact">Legal Impact: <span>The official government log corroborates the pattern: DCYF continued attempting to leverage code enforcement access through November. The November 7 warrant requirement — this time imposed by the landlord — confirms that the Fourth Amendment assertion Becker made in October was legally valid and recognized by others at the property.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 9 — First Amendment Violation</div>
+      <div class="exhibit-title">Levasseur's "Piss Off" Response — August 13, 2024</div>
+      <p class="exhibit-summary">The email thread showing the complete exchange. Becker submits a formal cease-and-desist letter through Manchester's official city website (webmaster@manchesternh.gov), subject: "RE: Follow-Up on Cease and Desist Demand – Violation of First Amendment Rights." The letter cites Knight First Amendment Institute v. Trump and Davison v. Randall — the controlling circuit precedents on government officials blocking constituents from public social media profiles. Alderman and Chairman Joseph Kelly Levasseur, Esquire, responds from his personal AOL account eleven minutes later: "Piss off." The full response is two words. It is cc'd from the City of Manchester's official webmaster system.</p>
+      <div class="exhibit-impact">Legal Impact: <span>A licensed attorney in elected office, responding through the official city communication system, to a formal constitutional complaint citing specific case law — in two words. The Magistrate dismissed Levasseur as improperly joined, not on the merits. The claim may be refiled.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 10 — Police Complaint Filing</div>
+      <div class="exhibit-title">Becker's Formal Police Complaint — April 11, 2025</div>
+      <p class="exhibit-summary">Becker's detailed formal complaint to MPD Internal Affairs, filed eight days after the welfare check. The complaint documents: (1) officers entering through "the door with a mail slot marked 162, which leads exclusively to my private residence via a stairwell"; (2) Becker asking McCarthy to wait outside while he was en route; (3) McCarthy meeting Becker on the front porch while Battye remained stationed inside; (4) Battye positioned "within my living room entirely inside the threshold" conducting visual searches of "two living rooms, partially the kitchen, and the bedroom adjacent to the staircase"; (5) officers maintaining "unauthorized presence" for approximately 25 minutes against Becker's expressed wishes; and (6) the timeline: Becker reports the incident as occurring between 3:19 PM and 3:50 PM — not 2:48–3:00 PM as McCarthy's report states.</p>
+      <div class="exhibit-impact">Legal Impact: <span>Establishes the factual record Becker submitted before any official response — critical for evaluating whether Whelan's subsequent memo characterizes events accurately or selectively. The 3:19–3:50 PM timeline in this complaint directly contradicts McCarthy's 2:48–3:00 PM report.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 11 — McCarthy Incident Report</div>
+      <div class="exhibit-title">Officer McCarthy's Official Incident Report — Dated April 4, 2025</div>
+      <p class="exhibit-summary">McCarthy's official police incident report documenting the April 3 welfare check. The report records the encounter as occurring from 2:48–3:00 PM. Becker's complaint — filed eight days later — places the encounter between 3:19 and 3:50 PM: a discrepancy of over 45 minutes on end time alone. The report also contains McCarthy's justification for calling backup: that Becker's instruction to his child seemed like "coaching." Becker alleges this is a timeline fabrication — McCarthy announced he was calling backup during a phone call before the alleged "coaching" instruction occurred, making the stated justification chronologically impossible. The report also contains what Becker documents as a progression of mischaracterizations of what he actually said to his child.</p>
+      <div class="exhibit-impact">Legal Impact: <span>The specific falsifications alleged — timestamp manipulation and impossible timeline — form the basis of Count VII (dismissed) but remain relevant to the surviving Fourth Amendment claim, as they bear on McCarthy's credibility and whether his stairwell entry was as innocuous as officially characterized.</span></div>
+    </div>
+
+    <div class="exhibit-card fade-in">
+      <div class="exhibit-label">Exhibit 14 — Factual Error Correction</div>
+      <div class="exhibit-title">Becker's Demand Letter Correcting "Common Hallway" Characterization — June 21, 2025</div>
+      <p class="exhibit-summary">Becker's formal letter to Captain Gravelle demanding correction of the fundamental factual error in Whelan's investigation memo. The letter itemizes the specific contents of the private stairwell that the memo mischaracterized as a "common hallway": a mail slot bearing only the address 162, Becker's personal mail, his dog's leash and poop bags, a small table with mail, his children's paintings and trophies bearing their names, and a wedding book labeled "BECKER" — all leading to a single door. The letter argues this is "not a minor detail" because "constitutional protections for private residential spaces are completely different from those applying to common areas," and that investigators "either committed gross negligence or deliberate mischaracterization."</p>
+      <div class="exhibit-impact">Legal Impact: <span>The stairwell's private vs. common status is the open factual question in McCarthy's portion of Count IV — the Magistrate specifically noted this requires "additional consideration of the configuration of the building." This exhibit contains Becker's documented evidence on that contested question, submitted to police command before the federal filing.</span></div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 05 — LEGAL ARGUMENTS (Plaintiff vs. Defendant)
+     Two-column layout: plaintiff arguments on left, defendant arguments right.
+     Add .argument-block divs inside each column as needed.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div id="arguments">
+  <div class="inner">
+    <div class="section-header fade-in">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Legal Arguments</h2>
+    </div>
+    <div class="arguments-layout fade-in">
+
+      <!-- PLAINTIFF COLUMN -->
+      <div class="plaintiff-col">
+        <div class="argument-column-header">Plaintiff's Position</div>
+
+        <div class="argument-block">
+          <h4>Officer Battye — Warrantless Entry and Search, No Exception Applies</h4>
+          <p>The Fourth Amendment's protection of the home is at its apex. Becker alleges Battye entered his apartment living room without a warrant, without his consent, and without exigent circumstances — after the purpose of the welfare check had already been fulfilled and his child's safety confirmed. The welfare check exception does not permit officers to remain inside a private residence conducting visual sweeps of bedrooms, kitchens, and secondary rooms. Becker further argues that MPD's own internal investigation memo confirms the violation: Whelan's memo admits Battye "stepped just inside of the threshold," "looks left and right," and "briefly leans toward the bedroom" — and justifies it as "standard protocol." An admitted standard practice of warrantless home searches is not an exception to the Fourth Amendment — it is a Monell violation.</p>
+          <div class="rebuttal">This is the surviving claim. The Magistrate found it plausible on its face at preliminary review. Battye will need to establish a recognized exception (exigent circumstances, consent, or community caretaking) that applies after welfare is confirmed — a difficult factual and legal argument when the government's own memo admits the conduct was routine rather than circumstance-driven.</div>
+        </div>
+
+        <div class="argument-block">
+          <h4>Officer McCarthy — Private Stairwell Carries Fourth Amendment Protection</h4>
+          <p>Becker alleges McCarthy entered a stairwell that is exclusively private: it bears only Becker's address (162), contains his mail slot and personal mail, displays his children's artwork and named trophies, holds a family wedding book labeled "BECKER," and leads to only one door. The Magistrate acknowledged the stairwell's private status "requires additional consideration" but found the claim plausible for preliminary review purposes. Becker argues that no reasonable person — and certainly not a trained police officer — could look at that stairwell and conclude it was a common area. The question is whether Becker had a reasonable expectation of privacy there, and he argues the physical contents answer that question conclusively.</p>
+        </div>
+
+        <div class="argument-block">
+          <h4>City of Manchester — Monell Municipal Liability</h4>
+          <p>A municipality is liable under § 1983 when constitutional violations result from official policy, a widespread custom, or a final policymaker's deliberate indifference to known violations. Becker argues all three are established here. Official policy: Whelan's memo explicitly calls warrantless home searches during welfare checks "standard protocol." Custom: Becker was told by a sergeant on April 3 that Battye's conduct was consistent with department policy. Final policymaker ratification: Chief Marr, with final policymaking authority over MPD, received detailed constitutional escalation and responded with silence. The Magistrate agreed, at preliminary review, that Becker states a plausible Monell claim.</p>
+        </div>
+
+        <div class="argument-block">
+          <h4>The Dismissed Counts — The Record Still Speaks</h4>
+          <p>Becker's objection argues the Magistrate's dismissal of six counts rests on treating documented municipal policies as isolated incidents. On Count I (substantive due process), Becker contends the conscience-shocking standard is met not by any single act but by the escalating institutional pattern: a welfare worker signs a refusal to hear child safety concerns, a supervisor ratifies it by phone, a director ratifies it in writing, and children wind up camping in freezing rain — all documented step by step. On Count V (conspiracy), Becker argues the DCYF contact log IS the overt act, and the Magistrate's dismissal for "no completed inspection" overlooks that an inspection DID occur the following day. These arguments are preserved for appeal.</p>
+        </div>
+
+      </div>
+
+      <!-- DEFENDANT COLUMN -->
+      <div class="defendant-col">
+        <div class="argument-column-header">Anticipated Defense Position</div>
+
+        <div class="argument-block">
+          <h4>Community Caretaking / Welfare Check Exception</h4>
+          <p>Officers McCarthy and Battye will likely argue their entry falls within recognized exceptions to the warrant requirement — specifically the "community caretaking" function and the welfare check doctrine. Under this argument, officers conducting a welfare check may enter a residence when they have reasonable grounds to believe someone inside needs assistance. The check was initiated by the child's school following multiple absences, and Becker's child had reportedly been hospitalized previously. Battye's brief visual check of living conditions may be characterized as a reasonable extension of confirming the child's welfare.</p>
+          <div class="rebuttal">Plaintiff's counter: The welfare check exception, even if valid at entry, does not authorize a systematic visual sweep of bedrooms and secondary rooms after welfare is confirmed. The Whelan memo's own admission that this was "standard protocol" — not a response to any observed emergency — fatally undermines the exigency argument. An officer cannot convert a completed welfare check into an investigative search.</div>
+        </div>
+
+        <div class="argument-block">
+          <h4>Stairwell Is a Common Area — No Reasonable Expectation of Privacy</h4>
+          <p>McCarthy will likely argue that the stairwell constitutes a common hallway in a multi-unit building, where courts have generally held tenants have a diminished expectation of privacy. Under this argument, the stairwell is accessible to the landlord, other residents, and guests — making it more analogous to a shared lobby than a private space. The Magistrate cited <em>United States v. Johnson</em> (4th Cir. 2025) for the proposition that the stairwell's private status requires factual development about the building's configuration and access.</p>
+          <div class="rebuttal">Plaintiff's counter: Exhibit 14 documents that this stairwell bears Becker's exclusive address, contains only his mail, displays only his children's belongings by name, and leads to only one door. These are not facts that require discovery — they are Becker's documented allegations. A stairwell leading exclusively to one unit, displaying that unit's family belongings and address, is functionally indistinguishable from a foyer or entranceway — both treated as private.</div>
+        </div>
+
+        <div class="argument-block">
+          <h4>Qualified Immunity — No Clearly Established Right Violated</h4>
+          <p>Officers may assert qualified immunity, arguing that even if a Fourth Amendment violation occurred, the law was not "clearly established" that officers conducting welfare checks could not briefly visually assess a home's living conditions, or that the type of stairwell at issue was private. Qualified immunity protects officers from liability unless a reasonable officer would have known the specific conduct violated the Constitution at the time of the act.</p>
+          <div class="rebuttal">Plaintiff's counter: The Fourth Amendment rule against warrantless home entries is among the most clearly established doctrines in constitutional law. The Supreme Court has repeatedly held that physical entry into the home "is the chief evil against which the wording of the Fourth Amendment is directed." An officer does not need a case on all fours to know that entering a living room and conducting a visual sweep of bedrooms without a warrant violates the Constitution.</div>
+        </div>
+
+        <div class="argument-block">
+          <h4>Welfare Department — Reasonable Deference to DCYF</h4>
+          <p>Defendants Moran, Mark, and Michaud — all dismissed — would argue that the Welfare Department's actions were entirely lawful: DCYF was already managing Becker's case, the Welfare Department lacked authority to intervene in DCYF's child safety determinations, and deferring to the agency with statutory authority over child welfare was the legally correct response. The Magistrate agreed, finding no conscience-shocking conduct and no protected interest in emergency welfare assistance on these facts.</p>
+          <div class="rebuttal">Plaintiff's counter (for appeal): The key distinction is timing. On October 7, initial deference may have been reasonable. But on October 10, with safety concerns validated, DCYF unreachable for 72 hours, and a specific camping-in-freezing-rain danger imminent, continued refusal — escalated by signing an official document — is not "reasonable deference." It is deliberate indifference to known, confirmed, imminent danger to children.</div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 06 — CONSTITUTIONAL FRAMEWORK
+     Amendment cards: add one per constitutional provision at issue.
+     Precedent grid: add one .precedent-item per controlling/persuasive case.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div id="constitution">
+  <div class="inner">
+    <div class="section-header">
+      <span class="section-number" style="color: var(--red);">06</span>
+      <h2 class="section-title">Constitutional Framework</h2>
+    </div>
+
+    <!-- Amendment cards -->
+    <div class="amendment-cards fade-in">
+      <div class="amendment-card">
+        <div class="amendment-number">IV</div>
+        <div class="amendment-name">Fourth Amendment — Surviving Claim</div>
+        <p class="amendment-desc">The Fourth Amendment protects against unreasonable searches and seizures. <strong>Non-consensual entries into a residence without a warrant are presumptively unreasonable.</strong> This is the claim that survived. Becker alleges Officer Battye entered his apartment living room and conducted a warrantless visual search of multiple private rooms. The surviving question is whether any recognized exception — exigent circumstances, consent, or community caretaking — justified entry after welfare was confirmed. A second question — whether McCarthy's entry into the stairwell was protected — turns on whether that space is "private" for Fourth Amendment purposes, a factual issue the court found requires further development.</p>
+      </div>
+      <div class="amendment-card">
+        <div class="amendment-number">XIV</div>
+        <div class="amendment-name">Fourteenth Amendment — Dismissed Claims</div>
+        <p class="amendment-desc">The Due Process Clause prohibits deprivation of life, liberty, or property without due process. Becker alleged both substantive and procedural violations. The <strong>substantive due process claim</strong> (Count I) required showing conduct "so egregious as to shock the conscience" — the Magistrate found welfare deferral to DCYF did not meet this bar, and the District Judge agreed. The <strong>procedural due process claim</strong> (Count II) required a protected interest and its deprivation without process — the Magistrate found no protected interest in emergency welfare assistance on these facts. Both are dismissed, but Becker's objection preserves the argument that the escalating institutional pattern — not any single act — satisfies the conscience-shocking standard.</p>
+      </div>
+      <div class="amendment-card">
+        <div class="amendment-number">I</div>
+        <div class="amendment-name">First Amendment — Dismissed w/o Prejudice</div>
+        <p class="amendment-desc">The First Amendment protects the right to petition the government for redress of grievances, and — under recent circuit precedent — prohibits government officials from blocking constituents from public social media profiles used for official purposes. Becker raised two distinct First Amendment theories: (1) Levasseur's Facebook blocking and "piss off" response to a formal constitutional petition, and (2) the Welfare Department's alleged systemic barriers to emergency assistance requests. Both were dismissed — the Levasseur claims for <strong>improper joinder</strong> (without prejudice), the Welfare claims for failure to state a petition-clause violation. The Levasseur claim may be refiled separately.</p>
+      </div>
+    </div>
+
+    <!-- Precedent grid -->
+    <div class="precedents-section fade-in">
+      <h3>Controlling &amp; Persuasive Authority</h3>
+      <div class="precedent-grid">
+
+        <div class="precedent-item">
+          <div class="case-cite">Monell v. Dep't of Social Services, 436 U.S. 658 (1978)</div>
+          <p class="case-holding">Municipalities are "persons" subject to § 1983 liability when a constitutional violation results from official policy, a widespread custom, or deliberate indifference by final policymakers. Directly governs the City of Manchester's liability on Count IV — the Magistrate found Becker states a plausible Monell claim based on the alleged policy of warrantless welfare-check searches.</p>
+        </div>
+
+        <div class="precedent-item">
+          <div class="case-cite">McCabe v. Life-Line Ambulance Serv., 77 F.3d 540 (1st Cir. 1996)</div>
+          <p class="case-holding">Non-consensual entries by government agents into a residence without a warrant are presumptively unreasonable under the Fourth Amendment. Cited by the Magistrate as the controlling First Circuit standard governing the warrantless entry claim against Battye and McCarthy.</p>
+        </div>
+
+        <div class="precedent-item">
+          <div class="case-cite">County of Sacramento v. Lewis, 523 U.S. 833 (1998)</div>
+          <p class="case-holding">Executive actions violate substantive due process when they are "truly outrageous, uncivilized, and intolerable" — requiring more than "humdrum legal error." Cited by Becker's objection as the standard met by the escalating pattern of institutional refusal leading to children camping in freezing rain, where the municipality doubled down after confirmed danger.</p>
+        </div>
+
+        <div class="precedent-item">
+          <div class="case-cite">Plourde v. Lewis, No. 23-cv-00323 (D. Me. 2025)</div>
+          <p class="case-holding">Addresses the community caretaking and exigent circumstances exceptions to the warrant requirement in the welfare check context. Cited by the Magistrate as governing the exceptions framework applicable to the Battye and McCarthy Fourth Amendment claim.</p>
+        </div>
+
+        <div class="precedent-item">
+          <div class="case-cite">United States v. Johnson, — F.4th — (4th Cir. Aug. 5, 2025)</div>
+          <p class="case-holding">Addresses Fourth Amendment privacy expectations in apartment building stairwells and common areas, requiring consideration of building configuration and tenant/visitor access. Cited by the Magistrate as the reason McCarthy's stairwell claim requires factual development rather than dismissal — the case was decided two months before the R&amp;R.</p>
+        </div>
+
+        <div class="precedent-item">
+          <div class="case-cite">Ashcroft v. Iqbal, 556 U.S. 662 (2009)</div>
+          <p class="case-holding">Establishes the plausibility pleading standard under Rule 12(b)(6): complaints must contain sufficient factual matter to state a claim plausible on its face. The standard applied (with liberal construction for pro se plaintiffs) throughout the Magistrate's preliminary review — six of seven counts failed it; Count IV against McCarthy, Battye, and the City passed it.</p>
+        </div>
+
+        <div class="precedent-item">
+          <div class="case-cite">Erickson v. Pardus, 551 U.S. 89 (2007)</div>
+          <p class="case-holding">Pro se complaints are to be construed liberally. The Magistrate applied this standard throughout the R&amp;R, and it is the reason several borderline claims received the most favorable possible reading before being dismissed — including the final survival of the Battye/McCarthy Fourth Amendment claim.</p>
+        </div>
+
+        <div class="precedent-item">
+          <div class="case-cite">Knight First Amendment Inst. v. Trump, 928 F.3d 226 (2d Cir. 2019)</div>
+          <p class="case-holding">Government officials who use social media accounts for official purposes cannot block constituents from engaging with those accounts — the interactive space is a designated public forum. Cited by Becker in his formal cease-and-desist to Levasseur as the controlling precedent for the Facebook-blocking claim. The claim was dismissed on joinder grounds, not on the merits of this doctrine.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 07 — PATTERN EVIDENCE
+     Numbered steps showing a repeated pattern of conduct.
+     Add/remove .pattern-step blocks as needed.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<section id="pattern">
+  <div class="section-header fade-in">
+    <span class="section-number">07</span>
+    <h2 class="section-title">The Pattern of Conduct</h2>
+  </div>
+  <p class="pattern-intro fade-in">
+    Becker's complaint and objection argue that the conduct documented here cannot be explained as a series of independent errors. Each event reinforced the last. Each escalation was foreclosed. Supervisors didn't just fail to intervene — they ratified. The sequence below is drawn directly from the exhibits and official records attached to the complaint.
+  </p>
+  <div class="pattern-steps fade-in">
+
+    <div class="pattern-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h4>Citizen Asserts Fourth Amendment Rights — Oct. 7, 2024</h4>
+        <p>Becker lawfully denies DCYF entry to his home. He does not physically obstruct — he asserts a constitutional right. Within hours, DCYF contacts Code Enforcement to circumvent that assertion, and City Welfare simultaneously refuses emergency housing by deferring back to the same agency that just went dark. The constitutional exercise triggers the institutional response rather than prompting legitimate re-evaluation.</p>
+        <span class="evidence-ref">→ Evidence: DCYF Contact Log Entry (Exhibit 2); Welfare Refusal Documentation (Exhibit 3)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h4>Agency Coordination Creates a "Closed Loop" — Oct. 7–8, 2024</h4>
+        <p>The DCYF contact log documents Code Enforcement Supervisor Dionne explicitly agreeing to treat DCYF's constitutional denial as a "complaint" and promising to report back if Becker refuses entry again. This creates what Becker's objection calls a "closed loop preventing constitutional protection" — emergency housing requires DCYF cooperation; DCYF cooperation requires surrendering Fourth Amendment rights; asserting those rights triggers Code Enforcement. There is no path that preserves both the constitutional right and access to assistance.</p>
+        <span class="evidence-ref">→ Evidence: DCYF Coordination Conspiracy Documentation (Exhibit 2); Housing Code Coordination (Exhibit 4)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h4>Safety Concerns Validated — Then Escalation Refused — Oct. 9–10, 2024</h4>
+        <p>Becker's specific warnings about the DCYF-mandated placement are confirmed on October 9 when a predawn altercation erupts at the grandparents' home exactly as he predicted. He returns to the Welfare Department the next day with this documented proof and warns about the upcoming camping arrangement. Welfare Specialist Moran responds not by reconsidering, but by escalating her refusal: she signs an official document stating she "refuses to listen to concerns of the safety of children." This is the moment Becker's objection identifies as transformative — what might have been reasonable initial deference became deliberate indifference in the face of confirmed, documented danger.</p>
+        <span class="evidence-ref">→ Evidence: Moran's Signed Statement on Notice of Decision (Exhibit 3); Welfare Complaint Documentation (Exhibit 5)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h4>Supervisory Ratification Up the Chain — Oct. 10, 2024</h4>
+        <p>Becker immediately escalates to every available level. Supervisor Mark confirms by phone that the department "prefers not to address child safety concerns." Director Michaud responds in writing that her office "solely provides financial assistance" and must "go through the same reporting process as any other caller" — despite being in direct communication with DCYF throughout the week they were unreachable to Becker. Each level of management ratifies the policy rather than correcting it. This is precisely the supervisory ratification pattern that establishes Monell municipal liability.</p>
+        <span class="evidence-ref">→ Evidence: Michaud Email Response (Exhibit 5); Welfare Complaint Documentation (Exhibit 5)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h4>Direct Physical Harm — Oct. 11–12, 2024</h4>
+        <p>The institutional refusals produce concrete results. Becker's children — one with an active upper respiratory infection — are forced to camp at a Weare campground in 37°F temperatures with rain and no adequate gear. This is not a hypothetical harm or a procedural injury. Becker is ultimately forced to call DCYF's emergency after-hours line when conditions become medically unsafe for his sick child. The camping arrangement Becker specifically warned Moran about — the one she refused to hear — materializes exactly as described.</p>
+        <span class="evidence-ref">→ Evidence: Forced Camping Crisis Documentation (Exhibit 6)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <h4>The Welfare Check Becomes an Investigative Search — April 3, 2025</h4>
+        <p>Officers McCarthy and Battye arrive for a welfare check. According to Becker's allegations, once his child's welfare is confirmed, Officer Battye does not leave — she steps fully inside the apartment living room, positions herself for approximately five minutes conducting visual searches of the child's bedroom, kitchen, and second living area, without warrant, consent, or exigent circumstances. Officer McCarthy, separately, enters the private residential stairwell. A sergeant later confirms to Becker that this conduct is "consistent with department policy for welfare checks." Becker's child — recently hospitalized following a prior traumatic police encounter — texts immediately afterward about removing their emotional support lizard.</p>
+        <span class="evidence-ref">→ Evidence: Police Complaint Filing (Exhibit 10); McCarthy Incident Report (Exhibit 11); Becker's Constitutional Appeal to Gravelle (Exhibit 15)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <h4>The Report Falsified to Conceal the Timeline — April 3–12, 2025</h4>
+        <p>Officer McCarthy's official incident report records the welfare check as ending at 3:00 PM. Becker alleges it actually ended at approximately 3:45 PM — a 45-minute discrepancy. The report also creates what Becker identifies as an impossible timeline: McCarthy claims he called for backup because a subsequent conversation seemed like Becker was "coaching" his child, but Becker has documentation showing McCarthy announced he was calling backup before that conversation occurred. The report also mischaracterizes what Becker said to his child. Sergeant Whelan's supervisory memorandum subsequently characterizes the private residential stairwell — which Becker documents contained his mail slot, personal mail, children's artwork with their names, a wedding book labeled "BECKER," and access to only one door — as a "common hallway."</p>
+        <span class="evidence-ref">→ Evidence: McCarthy Incident Report with Timestamps (Exhibit 11); Whelan Supervisory Memo (Exhibit 12); Factual Error Correction (Exhibit 14)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <h4>Internal Affairs Closes in One Day — April 11–12, 2025</h4>
+        <p>Becker files a formal complaint with the Manchester Police Department on April 11, 2025. The Internal Affairs investigation is completed the following day — April 12 — with officers exonerated. Sergeant Whelan's investigation memo, however, simultaneously admits the conduct: it confirms Officer Battye "stepped just inside of the threshold," "appears to quickly look left and right," "briefly leans toward the bedroom," and remained for "a couple of minutes." The memo justifies these actions as "standard protocol" because "an officer would want to ideally view the living conditions of the apartment" during welfare checks. The investigation exonerates the officers while documenting the constitutional violation in writing.</p>
+        <span class="evidence-ref">→ Evidence: Whelan Supervisory Memo (Exhibit 12); Becker's Initial Constitutional Appeal (Exhibit 13)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">9</div>
+      <div class="step-content">
+        <h4>CRC Defers to Flawed Investigation — May–June 2025</h4>
+        <p>The New Hampshire Civilian Review Committee conducts its own review — but based on the flawed MPD internal investigation, not independent fact-finding. The CRC's conclusion is "insufficient cause to proceed" — language Becker notes is notably different from affirmatively finding no wrongdoing. As Becker points out in his appeal to Gravelle: "the CRC only reviewed your department's flawed internal investigation rather than conducting independent fact-finding. Since that internal investigation contained fundamental factual errors ... the CRC's conclusion cannot resolve the underlying constitutional and policy issues."</p>
+        <span class="evidence-ref">→ Evidence: Constitutional Appeal Following CRC Conclusion (Exhibit 15)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">10</div>
+      <div class="step-content">
+        <h4>Gravelle's Form Response — Three Detailed Appeals, One Sentence — June 2025</h4>
+        <p>Becker sends Captain Gravelle three detailed written appeals documenting the constitutional violations, the "standard protocol" admission in the Whelan memo, the timeline contradictions in McCarthy's report, and the fundamental "common hallway" factual error. Gravelle's response to the first appeal: defers to CRC. After the CRC concludes, Gravelle's response to the second and third detailed appeals — in full: <strong>"This matter has been looked into by MPD and the CRC and is closed barring any new information."</strong> When Becker specifically provides new information meeting Gravelle's own stated criteria, Gravelle responds: <strong>"This has been reviewed and is closed barring new information."</strong></p>
+        <span class="evidence-ref">→ Evidence: Gravelle Response Emails — June 27 &amp; 30, 2025 (Exhibit 15/16)</span>
+      </div>
+    </div>
+
+    <div class="pattern-step">
+      <div class="step-num">11</div>
+      <div class="step-content">
+        <h4>Chief Marr — No Response — June 27, 2025</h4>
+        <p>Four days before filing his federal lawsuit, Becker sends a formal escalation to Chief Peter Marr, cc'ing the NH Attorney General and the Police Standards and Training office. The email documents every step of the chain, Gravelle's repeated form responses, the "standard protocol" admission, and the stairwell falsification. The subject line: "Escalation — Captain Gravelle's Refusal to Address Constitutional Violations Documented in MPD's Own Investigation." Chief Marr does not respond. The federal complaint is filed July 14, 2025.</p>
+        <span class="evidence-ref">→ Evidence: Escalation to Chief Marr (Exhibit 17)</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 08 — KEY ADMISSIONS
+     Each .admission-card shows a quote, its source, and legal analysis.
+     The featured class highlights the most important admission.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div id="admissions">
+  <div class="inner">
+    <div class="section-header">
+      <span class="section-number" style="color: var(--red);">08</span>
+      <h2 class="section-title">Key Admissions &amp; Damaging Statements</h2>
+    </div>
+    <div class="admissions-grid fade-in">
+
+      <!-- FEATURED -->
+      <div class="admission-card featured">
+        <div class="admission-source">Manchester City Welfare — Official Notice of Decision Paperwork</div>
+        <div class="admission-quote">
+          "I refuse to listen to concerns of the safety of children. Safety issues must be directed to DCYF."
+          <div style="margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase;">— Welfare Specialist Heather Moran, signed on official City of Manchester paperwork, October 10, 2024 (Exhibit 3)</div>
+        </div>
+        <div class="admission-analysis">
+          <strong>Why It Matters</strong>
+          This is the single most consequential document in the record. It is not an allegation — it is Becker's contemporaneous notation, signed and dated by the government official herself on official City of Manchester welfare paperwork. It was produced the day after Becker's specific safety predictions were confirmed by a 6 a.m. confrontation at the DCYF-mandated placement. The directive to "contact DCYF" was made with full knowledge that DCYF had been unreachable for 72 hours. Becker's objection frames this document as the watershed: whatever deference Moran was entitled to on October 7 evaporated the moment she signed away her department's responsibility on October 10. No defendant can claim this was informal or ambiguous — it is a signed admission on a government form.
+        </div>
+      </div>
+
+      <div class="admission-card">
+        <div class="admission-source">DCYF Contact Log — Official Government Case Record</div>
+        <div class="admission-quote">
+          "I spoke with Kevin Dionne (code enforcement). He will consider the call/message from Kim as a complaint and will be assigning an inspector to access the apartment. In the event that the tenant doesn't allow them in, he will let me know."
+          <div style="margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase;">— DCYF Contact Log Entry, October 8, 2024 at 9:45 AM (Exhibit 2)</div>
+        </div>
+        <div class="admission-analysis">
+          <strong>Why It Matters</strong>
+          The contact log is a contemporaneous government record, not a reconstructed narrative. It documents the coordination happening in real time, the morning after Becker's Fourth Amendment refusal. Three elements are critical: (1) the call was made specifically because Becker refused DCYF entry; (2) Dionne agreed to treat that constitutional refusal as a code enforcement "complaint" — the functional definition of using administrative process as a Fourth Amendment workaround; (3) the log explicitly contemplates what happens if Becker "doesn't allow them in" — meaning both parties understood this as a mechanism to compel entry Becker had lawfully refused. This is the documentary foundation of Count V (conspiracy, dismissed) and provides context for the surviving Monell claim.
+        </div>
+      </div>
+
+      <div class="admission-card">
+        <div class="admission-source">MPD Internal Affairs Supervisory Memorandum — Sgt. Dan Whelan</div>
+        <div class="admission-quote">
+          "Officer Battye stepped just inside of the threshold … appears to quickly look left and right … briefly leans toward the bedroom … [This] was standard protocol … an officer would want to ideally view the living conditions of the apartment."
+          <div style="margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase;">— Sgt. Dan Whelan, MPD Internal Affairs Memorandum, April 12, 2025 (Exhibit 12)</div>
+        </div>
+        <div class="admission-analysis">
+          <strong>Why It Matters</strong>
+          This memo was written by the Manchester Police Department — not Becker. It simultaneously exonerates Battye and documents, step by step, the exact conduct Becker alleges constitutes the Fourth Amendment violation. The memo's justification — "standard protocol" — is precisely what transforms an individual officer's action into Monell municipal liability. A city cannot disclaim responsibility for conduct its own investigators describe as routine department practice. The memo also admits there were no exigent circumstances — only the officer's general interest in "viewing living conditions" — which is not a recognized Fourth Amendment exception.
+        </div>
+      </div>
+
+      <div class="admission-card">
+        <div class="admission-source">Manchester Welfare Department — Director Charleen Michaud</div>
+        <div class="admission-quote">
+          "Our office is a city department which solely provides financial assistance and does not have any oversight regarding child abuse, neglect or safety concerns … Unfortunately we must go through the same reporting process as any other caller."
+          <div style="margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase;">— Director Charleen Michaud, email response to Becker's formal complaint, October 10, 2024 (Exhibit 5)</div>
+        </div>
+        <div class="admission-analysis">
+          <strong>Why It Matters</strong>
+          Michaud is the final policymaker for the Manchester Welfare Department. Her written response — same day, formal, addressed to Becker's explicit complaint — definitively confirms the departmental policy: the Welfare Department will not engage with child safety concerns regardless of circumstances, even when DCYF is unreachable and children face imminent danger. Under Monell, a final policymaker's express written articulation of official policy is among the strongest possible evidence of municipal liability. The line "same reporting process as any other caller" is particularly significant: it means the Director has not considered whether the specific circumstances might warrant a different response — she has a blanket rule.
+        </div>
+      </div>
+
+      <div class="admission-card">
+        <div class="admission-source">DCYF Supervisor — Official Letterhead Request to Code Enforcement</div>
+        <div class="admission-quote">
+          "It's my understanding that you went to the home of Torrence Becker at 162 Willow Street, Apt 3 Manchester NH and completed a violation order based on what you observed in his apartment. If you took pictures … would/could you please send those pictures as part of this request?"
+          <div style="margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase;">— DCYF Supervisor Catrina Horne, official letter to Code Enforcement Inspector Cogswell, October 10, 2024 (Exhibit 7)</div>
+        </div>
+        <div class="admission-analysis">
+          <strong>Why It Matters</strong>
+          This letter — sent on official DCYF letterhead, from a supervisor, to a code enforcement inspector, on the same day Moran signed her refusal — shows DCYF actively using the code enforcement inspection as an evidence-gathering mechanism. Becker had refused DCYF entry on October 7. By October 10, DCYF was requesting the photographs from an inspection it did not conduct, on behalf of a case it was officially managing. The letter is a formal record of DCYF treating the code enforcement inspection as a proxy for the home observation Becker constitutionally refused — a fact not alleged but documented in the government's own correspondence.
+        </div>
+      </div>
+
+      <div class="admission-card">
+        <div class="admission-source">Alderman Joseph Kelly Levasseur, Esq. — Official City Communication System</div>
+        <div class="admission-quote">
+          "Piss off"
+          <div style="margin-top: 1rem; font-family: 'DM Mono', monospace; font-size: 0.6rem; color: var(--muted); font-style: normal; letter-spacing: 0.1em; text-transform: uppercase;">— Alderman Joseph Kelly Levasseur, Esq., response to formal cease-and-desist petition submitted through the City of Manchester official website, August 13, 2024, 11:34 AM (Exhibit 9)</div>
+        </div>
+        <div class="admission-analysis">
+          <strong>Why It Matters</strong>
+          The context elevates this beyond mere rudeness. The sender is a licensed attorney serving as an elected Alderman. The message was submitted through Manchester's official city website — webmaster@manchesternh.gov — making it a government communication subject to RSA 91-A public disclosure. The subject line of the communication Levasseur was responding to: "RE: Follow-Up on Cease and Desist Demand – Violation of First Amendment Rights." The cease-and-desist cited Knight First Amendment Institute v. Trump and Davison v. Randall by name. A bar-admitted officer of the court responded to a detailed constitutional petition citing controlling case law with two words, eleven minutes after receipt. The claim was dismissed on joinder grounds — not on the merits of whether this conduct violates the First Amendment.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 09 — STATE / ADMINISTRATIVE PROCEEDINGS
+     Use for parallel state court, administrative appeals, or agency proceedings.
+     Delete if not applicable.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<div id="state-proceedings">
+  <div class="inner">
+    <div class="section-header fade-in">
+      <span class="section-number">09</span>
+      <h2 class="section-title">Administrative &amp; Complaint History</h2>
+    </div>
+    <p class="proceedings-intro fade-in">
+      Before filing his federal lawsuit, Becker exhausted every available administrative channel — internal police complaints, civilian review, appeals to supervisory command, and formal escalation to the Chief of Police. Each produced either a form response or silence. The documentation of those attempts is now part of the federal court record as Exhibits 10 through 17.
+    </p>
+
+    <div class="proceedings-grid fade-in">
+      <!-- Left column: Police internal complaint track -->
+      <div>
+        <div class="proceedings-col-header">Manchester Police — Internal Complaint Track</div>
+
+        <div class="appeal-card">
+          <div class="appeal-card-docket">Complaint Filed — April 11, 2025</div>
+          <h4>Initial Police Complaint — Officers McCarthy &amp; Battye</h4>
+          <p>Becker files a formal complaint with the Manchester Police Department detailing Officer Battye's warrantless entry and search of his apartment, Officer McCarthy's entry into the private stairwell, and McCarthy's falsified incident report. The complaint documents the 45-minute timestamp discrepancy (report says 2:48–3:00 PM; Becker alleges 2:48–3:45 PM) and the impossible timeline in McCarthy's backup-call justification.</p>
+          <span class="appeal-status">Closed — April 12, 2025 (One-Day Investigation)</span>
+        </div>
+
+        <div class="appeal-card">
+          <div class="appeal-card-docket">Whelan Supervisory Memo — April 12, 2025</div>
+          <h4>Internal Affairs Investigation Memorandum</h4>
+          <p>Sergeant Dan Whelan produces the supervisory memorandum the day after the complaint is filed. The memo exonerates both officers while simultaneously admitting in writing that Battye "stepped just inside of the threshold," "appears to quickly look left and right," "briefly leans toward the bedroom," and remained for "a couple of minutes." The memo justifies this as "standard protocol" because officers conducting welfare checks "would want to ideally view the living conditions of the apartment." The memo also characterizes Becker's private residential stairwell — documented to contain his family's mail, children's artwork with names, and a labeled wedding book — as a "common hallway."</p>
+          <span class="appeal-status">Officers Exonerated — Constitutional Conduct Admitted as Policy</span>
+        </div>
+
+        <div class="appeal-card">
+          <div class="appeal-card-docket">NH Civilian Review Committee — May–June 2025</div>
+          <h4>CRC Review — "Insufficient Cause to Proceed"</h4>
+          <p>The New Hampshire Civilian Review Committee reviews Becker's complaint. Rather than conducting independent fact-finding, the CRC reviews the MPD's internal investigation. The CRC's conclusion — "insufficient cause to proceed" — does not affirmatively find officers acted appropriately. Becker notes this language is meaningfully different from a finding of no wrongdoing. On May 19, 2025, a sergeant informs Becker in person that officers were "exonerated" and a determination letter was mailed; on May 26, Gravelle writes the investigation "is not complete yet." This contradiction — exoneration without a completed investigation — becomes the subject of Becker's subsequent appeals.</p>
+          <span class="appeal-status">Closed — Insufficient Cause (No Independent Fact-Finding)</span>
+        </div>
+
+        <div class="appeal-card">
+          <div class="appeal-card-docket">Appeals to Capt. Gravelle — May 23 – Jun. 27, 2025</div>
+          <h4>Three Detailed Constitutional Appeals — Form Responses</h4>
+          <p>Becker sends Captain Gravelle three formal written appeals (May 23, June 21, June 27) providing detailed constitutional analysis, quoting the Whelan memo's "standard protocol" admission, documenting the stairwell falsification, and identifying the McCarthy timeline contradictions. Gravelle's substantive response to the second and third appeals: <em>"This matter has been looked into by MPD and the CRC and is closed barring any new information."</em> When Becker provides new information specifically meeting Gravelle's own stated reopening criteria, the June 30 response: <em>"This has been reviewed and is closed barring new information."</em></p>
+          <span class="appeal-status">Closed — Form Responses — No Substantive Engagement</span>
+        </div>
+
+        <div class="appeal-card">
+          <div class="appeal-card-docket">Escalation to Chief Marr — June 27, 2025</div>
+          <h4>Final Escalation to Chief of Police — No Response</h4>
+          <p>Becker sends a formal escalation to Chief Peter Marr, subject: "Escalation — Captain Gravelle's Refusal to Address Constitutional Violations Documented in MPD's Own Investigation." The letter is copied to the NH Attorney General and the Police Standards and Training office. It documents every step of the complaint chain, quotes the "standard protocol" admission verbatim, details the stairwell falsification, and explicitly argues that constitutional violations do not become lawful simply because they are systematic department policy. Chief Marr does not respond. The federal complaint is filed four days later.</p>
+          <span class="appeal-status">No Response — Federal Lawsuit Filed July 14, 2025</span>
+        </div>
+      </div>
+
+      <!-- Right column: DCYF / Welfare track + key significance -->
+      <div>
+        <div class="proceedings-col-header">DCYF / City Welfare — October 2024 Track</div>
+
+        <div class="landmark-callout">
+          <div class="landmark-callout-label">⭐ The Coordination Admission</div>
+          <p>The DCYF contact log — a government record — documents on October 8, 2024 at 9:45 AM that a DCYF worker contacted Code Enforcement Supervisor Kevin Dionne the day after Becker's Fourth Amendment assertion and that Dionne agreed to treat the constitutional refusal as an administrative "complaint," assign an inspector, and report back if rights were again asserted. This entry, reproduced verbatim in the federal complaint, is the cornerstone of Becker's conspiracy and municipal policy arguments — the documentary proof that the coordination was not incidental but planned and contemporaneously documented in an official log.</p>
+        </div>
+
+        <div class="appeal-card" style="margin-top: 1.5rem;">
+          <div class="appeal-card-docket">City Welfare — October 7, 2024</div>
+          <h4>Welfare Specialist Moran — First Refusal</h4>
+          <p>Moran refuses emergency housing assistance, deferring to DCYF. The Magistrate characterized this as reasonable initial deference given DCYF's involvement. Becker's objection argues the same conduct one week later — after dangers were confirmed and DCYF had been unreachable for 72 hours — cannot be characterized as reasonable deference.</p>
+          <span class="appeal-status">Refused — Deferred to DCYF</span>
+        </div>
+
+        <div class="appeal-card">
+          <div class="appeal-card-docket">City Welfare — October 10, 2024</div>
+          <h4>Moran Signs Official Refusal Document</h4>
+          <p>Three days after her initial refusal — with safety concerns now documented and validated — Moran signs the Notice of Decision paperwork that Becker has written on, confirming her refusal to listen to child safety concerns. The signed document is Exhibit 3 to the federal complaint.</p>
+          <span class="appeal-status">Signed Admission — "Refuses to Listen to Concerns of the Safety of Children"</span>
+        </div>
+
+        <div class="appeal-card">
+          <div class="appeal-card-docket">Director Michaud — October 10, 2024</div>
+          <h4>Director's Written Ratification</h4>
+          <p>Michaud responds in writing that the office "solely provides financial assistance" and must follow "the same reporting process as any other caller" — despite being in direct contact with DCYF throughout the week they were unreachable to Becker. Becker's objection frames this written response as the final-policymaker ratification that converts Moran's individual conduct into official municipal policy under Monell.</p>
+          <span class="appeal-status">Written Ratification — Policy Confirmed</span>
+        </div>
+
+        <div class="systemic-box" style="margin-top: 2rem;">
+          <h4>The Parallel Complaint — DCYF Lawsuit</h4>
+          <p>The Magistrate's R&amp;R notes that Becker previously filed a related lawsuit against the New Hampshire Department of Health and Human Services, DCYF, and individual DCYF defendants: <em>Becker v. N.H. Division for Children, Youth, and Families</em>, 24-cv-430-JL-TSM (filed December 27, 2024). That action, arising from some of the same October 2024 events, is a separate proceeding. The current federal case against the City of Manchester represents the municipal liability claims — the allegation that the City's own agencies and employees, acting independently of DCYF, bear constitutional responsibility for what occurred.</p>
+          <span class="stat-highlight">2</span>
+          <p>Federal civil rights actions arising from the October 2024 crisis — one against DCYF/state defendants, one against City of Manchester defendants.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mandamus-style summary box -->
+    <div class="mandamus-box fade-in">
+      <h3>The Complete Complaint Architecture — Before the Federal Filing</h3>
+      <p>By the time Becker filed his federal complaint on July 14, 2025, he had: (1) filed a formal police complaint within eight days of the incident; (2) navigated a one-day Internal Affairs investigation; (3) pursued review through the NH Civilian Review Committee; (4) sent three detailed written constitutional appeals to a police captain; (5) formally escalated to the Chief of Police with copies to the NH Attorney General and Police Standards and Training; and (6) received, in response, a total of two sentences from the relevant command authority — identical in content on both occasions.</p>
+      <div class="mandamus-meta">
+        <div class="mandamus-meta-item">
+          <span class="label">Initial Complaint</span>
+          <span class="value">April 11, 2025</span>
+        </div>
+        <div class="mandamus-meta-item">
+          <span class="label">IA Investigation Duration</span>
+          <span class="value">1 Day</span>
+        </div>
+        <div class="mandamus-meta-item">
+          <span class="label">Appeals to Command</span>
+          <span class="value">5 Formal Filings</span>
+        </div>
+        <div class="mandamus-meta-item">
+          <span class="label">Substantive Responses</span>
+          <span class="value">0</span>
+        </div>
+        <div class="mandamus-meta-item">
+          <span class="label">Federal Filing</span>
+          <span class="value">July 14, 2025</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 10 — CURRENT STATUS & DOCKET
+     Left column: narrative status assessment + outcome probability bars.
+     Right column: mini docket with key filings.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<section id="status">
+  <div class="section-header fade-in">
+    <span class="section-number">10</span>
+    <h2 class="section-title">Current Status</h2>
+  </div>
+  <div class="status-grid fade-in">
+
+    <!-- Main status column -->
+    <div class="status-main">
+      <p class="status-assessment">
+        As of November 6, 2025, <strong>Count IV is in active litigation.</strong> District Judge McCafferty approved the Magistrate's Report and Recommendation in full. The three surviving defendants — Officers Battye and McCarthy and the City of Manchester — have been ordered to service. The case now enters the phase of responsive pleadings: defendants will answer or move to dismiss, service of process must be completed, and the parties will enter scheduling and discovery. Becker is proceeding pro se and in forma pauperis, which means he bears the full litigation burden without counsel but is exempt from filing fees, and the court must liberally construe his pleadings throughout the proceeding.
+      </p>
+      <p class="status-assessment">
+        The six dismissed counts — including the October 2024 welfare coordination scheme, the § 1983 conspiracy claim, and the document falsification count — are no longer active, but the underlying evidence remains in the record and is available for impeachment, background, and Monell policy arguments within Count IV. Levasseur's dismissal (Counts III and VI) was without prejudice, preserving Becker's right to refile those claims in a properly joined action. The parallel DCYF lawsuit — <em>Becker v. N.H. Div. for Children, Youth, and Families</em>, 24-cv-430-JL-TSM — remains a separate proceeding addressing state-agency defendants.
+      </p>
+
+      <div class="outcome-prediction">
+        <h4>Count IV — Battye Warrantless Search Assessment</h4>
+        <p>Based on the Magistrate's preliminary analysis, the surviving allegations, and the "standard protocol" admission in the government's own investigative memo.</p>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Survives Motion to Dismiss</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 82%;"></div></div>
+          <div class="outcome-bar-pct">82%</div>
+        </div>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Dismissed on Motion</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 18%;"></div></div>
+          <div class="outcome-bar-pct">18%</div>
+        </div>
+      </div>
+
+      <div class="outcome-prediction">
+        <h4>Count IV — McCarthy Stairwell Assessment</h4>
+        <p>The Magistrate explicitly flagged this as a factual question requiring development — stronger than dismissal, but dependent on the physical configuration evidence Becker documented in Exhibit 14.</p>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Survives — Stairwell Deemed Private</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 65%;"></div></div>
+          <div class="outcome-bar-pct">65%</div>
+        </div>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Dismissed — Common Area Finding</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 35%;"></div></div>
+          <div class="outcome-bar-pct">35%</div>
+        </div>
+      </div>
+
+      <div class="outcome-prediction">
+        <h4>Monell — City of Manchester Municipal Liability</h4>
+        <p>Strengthened by the MPD's own written admission that warrantless home searches during welfare checks are "standard protocol." The City faces a written record from its own department calling the conduct routine.</p>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Monell Claim Survives</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 75%;"></div></div>
+          <div class="outcome-bar-pct">75%</div>
+        </div>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Dismissed — No Municipal Policy Found</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 25%;"></div></div>
+          <div class="outcome-bar-pct">25%</div>
+        </div>
+      </div>
+
+      <div class="outcome-prediction">
+        <h4>Qualified Immunity — Officers Battye &amp; McCarthy</h4>
+        <p>Fourth Amendment home-entry protections are among the most clearly established doctrines in constitutional law. The "clearly established" prong of qualified immunity is harder to satisfy for warrantless home searches than almost any other context.</p>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Qualified Immunity Denied — Case Proceeds</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 70%;"></div></div>
+          <div class="outcome-bar-pct">70%</div>
+        </div>
+        <div class="outcome-bar">
+          <div class="outcome-bar-label">Qualified Immunity Granted — Officers Dismissed</div>
+          <div class="outcome-bar-track"><div class="outcome-bar-fill" style="width: 30%;"></div></div>
+          <div class="outcome-bar-pct">30%</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mini docket sidebar -->
+    <div class="status-docket">
+      <div class="docket-label">Key Filings — Becker v. City of Manchester</div>
+      <div class="docket-entry">
+        <span class="doc-name">ECF 1 — Verified Complaint (7 Counts)</span>
+        <span class="doc-date">Jul. 14, 2025</span>
+      </div>
+      <div class="docket-entry">
+        <span class="doc-name">ECF 2 — Motion to Proceed IFP</span>
+        <span class="doc-date">Jul. 14, 2025</span>
+      </div>
+      <div class="docket-entry">
+        <span class="doc-name">ECF 5 — IFP Granted</span>
+        <span class="doc-date">Jul. 30, 2025</span>
+      </div>
+      <div class="docket-entry">
+        <span class="doc-name">ECF 7 — Magistrate R&amp;R (16 pp.)</span>
+        <span class="doc-date">Sep. 15, 2025</span>
+      </div>
+      <div class="docket-entry">
+        <span class="doc-name">ECF 8 — Service Order (Count IV)</span>
+        <span class="doc-date">Sep. 15, 2025</span>
+      </div>
+      <div class="docket-entry">
+        <span class="doc-name">ECF 10 — Plaintiff's Objection to R&amp;R</span>
+        <span class="doc-date">Sep. 24, 2025</span>
+      </div>
+      <div class="docket-entry" style="border-left: 2px solid var(--red); padding-left: 0.75rem;">
+        <span class="doc-name" style="font-weight: 700;">ECF 11 — DJ Order Approving R&amp;R</span>
+        <span class="doc-date" style="color: var(--red);">Nov. 6, 2025</span>
+      </div>
+      <div style="margin-top: 2rem; padding: 1.25rem; background: var(--cream); border-left: 3px solid var(--red);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem;">Active Defendants</div>
+        <div style="font-size: 0.85rem; line-height: 1.8; color: var(--slate);">
+          Officer Brittany Battye<br>
+          Officer Christopher McCarthy<br>
+          City of Manchester, NH
+        </div>
+      </div>
+      <div style="margin-top: 1rem; padding: 1.25rem; background: var(--paper); border: 1px solid var(--rule);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem;">Dismissed</div>
+        <div style="font-size: 0.8rem; line-height: 1.8; color: var(--muted);">
+          Moran, Michaud, Mark (Counts I–III, V–VII)<br>
+          Dionne (Count IV only)<br>
+          Gravelle, Marr, Whelan (all counts)<br>
+          Levasseur (Counts III, VI — w/o prejudice)
+        </div>
+      </div>
+      <div style="margin-top: 1rem; padding: 1.25rem; background: var(--paper); border: 1px solid var(--rule);">
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem;">Parallel Action</div>
+        <div style="font-size: 0.8rem; line-height: 1.75; color: var(--slate);">
+          Becker v. NH DCYF et al.<br>
+          <span style="color: var(--muted);">24-cv-430-JL-TSM (D.N.H.)</span><br>
+          State-agency defendants — separate proceeding
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     SECTION 11 — STAKES & SIGNIFICANCE ("Why It Matters")
+     Dark background section explaining the broader implications.
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<section id="stakes" style="background: var(--ink); color: var(--paper); padding: 6rem 0;">
+  <div style="max-width: 1100px; margin: 0 auto; padding: 0 4rem;">
+
+    <div class="section-header" style="border-bottom-color: #333;">
+      <span class="section-number" style="color: var(--red);">11</span>
+      <h2 class="section-title" style="color: var(--paper);">Why This Case Matters</h2>
+    </div>
+
+    <!-- Stat highlights grid -->
+    <div class="fade-in" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 4rem;">
+      <div style="text-align: center; padding: 2rem; border: 1px solid #2a2a2a;">
+        <span class="stat-highlight">1 Day</span>
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);">Duration of the internal affairs investigation that exonerated both officers</div>
+      </div>
+      <div style="text-align: center; padding: 2rem; border: 1px solid #2a2a2a;">
+        <span class="stat-highlight">0</span>
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);">Substantive responses received from MPD command to five formal constitutional filings</div>
+      </div>
+      <div style="text-align: center; padding: 2rem; border: 1px solid #2a2a2a;">
+        <span class="stat-highlight">37°F</span>
+        <div style="font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);">Temperature at Weare campground where children — one with respiratory infection — were sent as "emergency housing"</div>
+      </div>
+    </div>
+
+    <!-- Main stakes narrative -->
+    <div class="fade-in" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 4rem;">
+      <div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--paper); margin-bottom: 1.5rem;">When Does a Welfare Check Become an Unconstitutional Search?</h3>
+        <p style="font-size: 0.95rem; color: #a0998e; line-height: 1.8;">Police welfare checks are growing in frequency across the country — and so is the legal ambiguity around them. Officers responding to wellness calls occupy unusual constitutional ground: they arrive with legitimate purpose, no warrant, and often with discretion about how long to stay and what to observe. The question this case will help answer is whether a completed welfare check — a child's safety confirmed — can transform into a warrantless residential search based on an officer's general interest in "viewing living conditions." If MPD's admitted "standard protocol" is constitutional, every welfare check becomes a potential warrantless home inspection. If it is not, departments nationwide conducting identical practices face reconsideration.</p>
+      </div>
+      <div>
+        <h3 style="font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--paper); margin-bottom: 1.5rem;">Can Agencies Coordinate to Circumvent Constitutional Refusals?</h3>
+        <p style="font-size: 0.95rem; color: #a0998e; line-height: 1.8;">The October 2024 DCYF-Code Enforcement coordination — documented in a government log the day after Becker's Fourth Amendment assertion — raises a question courts have rarely confronted with such clarity: what happens when one government agency uses a different agency's administrative authority as a workaround to access what a citizen has constitutionally refused? The warrant requirement does not prohibit coordination for legitimate purposes. But it does prohibit using administrative processes as pretexts for what would otherwise require judicial authorization. The DCYF coordination log's direct reference to Becker's refusal and the plan to send inspectors — with a contingency for if Becker refuses again — describes exactly that structure. The conspiracy claim was dismissed; the question it poses was not.</p>
+      </div>
+    </div>
+
+    <!-- Key questions -->
+    <div class="fade-in" style="padding: 2.5rem; background: #111; border: 1px solid #2a2a2a;">
+      <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--paper); margin-bottom: 1.5rem;">The Questions Proceeding to Litigation</h3>
+      <ul style="list-style: none; padding: 0; margin: 0;">
+        <li style="margin-bottom: 1.1rem; padding-left: 1.5rem; border-left: 2px solid var(--red);">→ <strong style="color: var(--paper);">The Threshold Question</strong> — Once a welfare check confirms a child's safety, what legal authority — if any — permits an officer to remain inside a private home and conduct visual searches of rooms not visible from the doorway?</li>
+        <li style="margin-bottom: 1.1rem; padding-left: 1.5rem; border-left: 2px solid #333;">→ <strong style="color: var(--paper);">Standard Protocol as Monell Liability</strong> — When a municipality's own internal investigation calls warrantless home searches "standard protocol," has the municipality written its own Monell liability into the record?</li>
+        <li style="margin-bottom: 1.1rem; padding-left: 1.5rem; border-left: 2px solid #333;">→ <strong style="color: var(--paper);">The Stairwell Question</strong> — Does a residential stairwell serving only one apartment, bearing only that apartment's address, and containing only that family's personal belongings, carry Fourth Amendment protection — and if it does, must a warrant exist before officers enter it?</li>
+        <li style="margin-bottom: 1.1rem; padding-left: 1.5rem; border-left: 2px solid #333;">→ <strong style="color: var(--paper);">Report Falsification and Credibility</strong> — If McCarthy's incident report contains the impossible timeline Becker alleges, what does that mean for the credibility of every fact in that report — including the characterizations that form the basis of the stairwell defense?</li>
+        <li style="margin-bottom: 0; padding-left: 1.5rem; border-left: 2px solid #333;">→ <strong style="color: var(--paper);">Chain of Command Silence as Ratification</strong> — When a Chief of Police receives a detailed escalation documenting his department's written admission of unconstitutional "standard protocol" and does not respond, does that silence constitute final-policymaker ratification under Monell?</li>
+      </ul>
+      <div style="padding: 2rem; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); text-align: center; font-style: italic; font-size: 1.05rem; color: var(--paper); line-height: 1.8; margin-top: 2rem;">
+        The Fourth Amendment's protection of the home is, in the words of the Supreme Court, "the chief evil against which the wording of the Fourth Amendment is directed." If a government department can describe warrantless home searches as routine protocol, investigate itself in a single day, receive detailed constitutional appeals documenting its own admission, respond with form letters, and face no consequence — then the protection is nominal. <em>Becker v. City of Manchester</em> is, at its core, a test of whether that protection has substance.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════════════════════════
+     FOOTER
+     Four columns: Case Info | Key Dates | About This Document | Document Library
+     ═══════════════════════════════════════════════════════════════════════════ -->
+<footer>
+  <div class="footer-section">
+    <h5>Case Information</h5>
+    <ul>
+      <li>Becker v. City of Manchester et al.</li>
+      <li>1:25-cv-00263-LM-TSM</li>
+      <li>U.S. District Court — D. New Hampshire</li>
+      <li>Fourth Amendment — 42 U.S.C. § 1983</li>
+      <li style="margin-top: 0.5rem; color: #888;">Filed: July 14, 2025</li>
+      <li style="color: #888;">Status: Active — Count IV</li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h5>Key Dates</h5>
+    <ul>
+      <li>Oct. 7, 2024 — DCYF-Code Enforcement coordination</li>
+      <li>Oct. 10, 2024 — Moran signs welfare refusal</li>
+      <li>Oct. 11–12, 2024 — Forced camping in 37°F</li>
+      <li>Apr. 3, 2025 — Warrantless welfare check search</li>
+      <li>Jul. 14, 2025 — Federal complaint filed</li>
+      <li>Sep. 15, 2025 — Magistrate R&amp;R issued</li>
+      <li>Nov. 6, 2025 — District Judge approves R&amp;R</li>
+    </ul>
+  </div>
+  <div class="footer-section">
+    <h5>About This Document</h5>
+    <p>This website documents publicly filed court records and exhibits in the matter of <em>Becker v. City of Manchester et al.</em>, 1:25-cv-00263-LM-TSM (D.N.H.). All quotations are drawn directly from documents filed in the federal court record or from government records attached as exhibits to the complaint. This document is prepared for informational and public interest purposes. Nothing here constitutes legal advice. All allegations remain unproven. Defendants deny liability.</p>
+  </div>
+  <div class="footer-section">
+    <h5>Document Library</h5>
+    <ul>
+      <li>All federal filings available via PACER</li>
+      <li>Docket: 1:25-cv-00263-LM-TSM (D.N.H.)</li>
+      <li style="margin-top: 0.75rem; color: #888;">Key filings:</li>
+      <li>ECF 1 — Verified Complaint (Jul. 14, 2025)</li>
+      <li>ECF 7 — Magistrate R&amp;R (Sep. 15, 2025)</li>
+      <li>ECF 10 — Plaintiff's Objection (Sep. 24, 2025)</li>
+      <li>ECF 11 — DJ Order (Nov. 6, 2025)</li>
+      <li style="margin-top: 0.75rem; color: #888;">17 Exhibits filed with complaint</li>
+    </ul>
+  </div>
+</footer>
+
+
+<script>
+  // Intersection observer for scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+  document.querySelectorAll('.fade-in, .timeline-entry').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Staggered timeline entries
+  document.querySelectorAll('.timeline-entry').forEach((entry, i) => {
+    entry.style.transitionDelay = `${i * 0.08}s`;
+  });
+
+  // Animate outcome bars on scroll
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.outcome-bar-fill').forEach(bar => {
+          const width = bar.style.width;
+          bar.style.width = '0%';
+          setTimeout(() => { bar.style.width = width; }, 100);
+        });
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.outcome-prediction').forEach(el => barObserver.observe(el));
+
+  // Nav active state
+  const sections = document.querySelectorAll('[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 100) current = s.id;
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--red)' : '';
+    });
+  });
+</script>
+
+<script>
+// ── COLLAPSIBLE SECTIONS ──────────────────────────────────────────────────────
+(function() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .section-header { cursor: pointer; user-select: none; }
+    .section-header .collapse-arrow {
+      margin-left: auto;
+      font-size: 1rem;
+      color: var(--red);
+      font-family: 'DM Mono', monospace;
+      flex-shrink: 0;
+      padding-left: 1rem;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+    .section-header .collapse-arrow.collapsed { transform: rotate(-90deg); }
+    .section-content { transition: none; }
+    .back-to-top-link {
+      display: block;
+      text-align: right;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+    }
+    .back-to-top-link a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--red);
+      text-decoration: none;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .back-to-top-link a:hover { text-decoration: underline; }
+  `;
+  document.head.appendChild(style);
+
+  document.querySelectorAll('.section-header').forEach(header => {
+    if (header.closest('.section-content')) return;
+    const parent = header.parentElement;
+    const arrow = document.createElement('span');
+    arrow.className = 'collapse-arrow';
+    arrow.innerHTML = '▼';
+    header.appendChild(arrow);
+    const content = document.createElement('div');
+    content.className = 'section-content';
+    const siblings = [];
+    let sib = header.nextElementSibling;
+    while (sib) {
+      siblings.push(sib);
+      sib = sib.nextElementSibling;
+    }
+    siblings.forEach(s => content.appendChild(s));
+    const backTop = document.createElement('div');
+    backTop.className = 'back-to-top-link';
+    backTop.innerHTML = '<a href="#">↑ Back to top</a>';
+    content.appendChild(backTop);
+    parent.appendChild(content);
+    header.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') return;
+      const hidden = content.style.display === 'none';
+      content.style.display = hidden ? '' : 'none';
+      arrow.classList.toggle('collapsed', !hidden);
+      arrow.innerHTML = hidden ? '▼' : '▶';
+    });
+  });
+
+  const toggleBtn = document.getElementById('toggleAllBtn');
+  if (toggleBtn) {
+    toggleBtn.innerHTML = '⬇️ Expand All';
+    document.querySelectorAll('.section-content').forEach(c => c.style.display = 'none');
+    document.querySelectorAll('.section-header .collapse-arrow').forEach(a => {
+      a.innerHTML = '▶';
+      a.classList.add('collapsed');
+    });
+    toggleBtn.addEventListener('click', function() {
+      const allContents = document.querySelectorAll('.section-content');
+      const allArrows  = document.querySelectorAll('.section-header .collapse-arrow');
+      const isAnyCollapsed = Array.from(allContents).some(c => c.style.display === 'none');
+      allContents.forEach(c => { c.style.display = isAnyCollapsed ? '' : 'none'; });
+      allArrows.forEach(a => {
+        a.innerHTML = isAnyCollapsed ? '▼' : '▶';
+        a.classList.toggle('collapsed', !isAnyCollapsed);
+      });
+      this.innerHTML = isAnyCollapsed ? '⬆️ Collapse All' : '⬇️ Expand All';
+    });
+  }
+})();
+</script>
+</body>
+</html>
